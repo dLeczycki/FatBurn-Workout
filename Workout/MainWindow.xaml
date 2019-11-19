@@ -32,68 +32,68 @@
                 </Border>
                 <Border Grid.Column="0" Grid.Row="1" Background="White"></Border>
                 <Border Grid.Column="0" Grid.Row="2">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border Grid.Column="0" Grid.Row="0">
-                            <Button x:Name="buttonPushupsImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
-                                <Image x:Name="pushupsImage" Height="50" Width="50" Source="/icons/push-up-light.png" Stretch="UniformToFill"/>
-                            </Button>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="0">
-                            <Button x:Name="buttonPushupsLabel" Content="100 pompek" Background="{x:Null}" FontSize="26" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0,1,1,1" HorizontalContentAlignment="Left"/>
-                        </Border>
-                    </Grid>
+                    <Button x:Name="buttonPushupsImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0" Grid.Row="0">
+                                    <Image x:Name="pushupsImage" Height="50" Width="50" Source="/icons/push-up-light.png" Stretch="UniformToFill"/>
+                                </Border>
+                                <Border Grid.Column="1" Grid.Row="0">
+                                    <Label FontSize="26" Foreground="White">100 pompek</Label>
+                                </Border>
+                            </Grid>
+                        </Button>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="3">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border Grid.Column="0" Grid.Row="0">
-                            <Button x:Name="buttonWeiderImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
-                                <Image x:Name="weiderImage" Height="50" Width="50" Source="/icons/abdominals-light.png" Stretch="UniformToFill"/>
+                    <Button x:Name="buttonWeiderImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Grid.Row="0">
+                                        <Image x:Name="weiderImage" Height="50" Width="50" Source="/icons/abdominals-light.png" Stretch="UniformToFill"/>
+                                    </Border>
+                                    <Border Grid.Column="1" Grid.Row="0">
+                                        <Label FontSize="26" Foreground="White">6 Weidera</Label>
+                                    </Border>
+                                </Grid>
                             </Button>
                         </Border>
-                        <Border Grid.Column="1" Grid.Row="0">
-                            <Button x:Name="buttonWeiderLabel" Content="6 Weidera" Background="{x:Null}" FontSize="26" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0,1,1,1" HorizontalContentAlignment="Left"/>
-                        </Border>
-                    </Grid>
-                </Border>
                 <Border Grid.Column="0" Grid.Row="4">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border Grid.Column="0" Grid.Row="0">
-                            <Button x:Name="buttonSpartakusImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                    <Button x:Name="buttonSpartakusImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Grid.Row="0">
                                 <Image x:Name="spartakusImage" Height="50" Width="50" Source="/icons/sweat-light.png" Stretch="UniformToFill"/>
-                            </Button>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="0">
-                            <Button x:Name="buttonSpartakusLabel" Content="Spartakus" Background="{x:Null}" FontSize="26" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0,1,1,1" HorizontalContentAlignment="Left"/>
-                        </Border>
-                    </Grid>
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="0">
+                                <Label FontSize="26" Foreground="White">Spartakus</Label>
+                            </Border>
+                        </Grid>
+                    </Button>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="5">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Border Grid.Column="0" Grid.Row="0">
-                            <Button x:Name="buttonGymImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                    <Button x:Name="buttonGymImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" Grid.Row="0">
                                 <Image x:Name="gymImage" Height="50" Width="50" Source="/icons/weightlifting-light.png" Stretch="UniformToFill"/>
-                            </Button>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="0">
-                            <Button x:Name="buttonGymLabel" Content="Siłownia" Background="{x:Null}" FontSize="26" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0,1,1,1" HorizontalContentAlignment="Left"/>
-                        </Border>
-                    </Grid>
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="0">
+                                <Label FontSize="26" Foreground="White">Siłownia</Label>
+                            </Border>
+                        </Grid>
+                    </Button>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="6">
                     <Grid>

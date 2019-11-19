@@ -168,7 +168,6 @@
     <Resource Include="img\trainingFinished.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MessageBoxes\" />
     <Folder Include="Spartakus\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
