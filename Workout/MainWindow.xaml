@@ -1,0 +1,123 @@
+﻿<Window x:Class="Workout.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Workout"
+        mc:Ignorable="d"
+        Title="FatBurn" Height="675" Width="1200" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="8*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Grid.Row="0" Background="#FF212121">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2.5*"></RowDefinition>
+                    <RowDefinition Height="0.05*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="0">
+                    <Grid>
+                        <Button x:Name="buttonSettingsImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                            <Image x:Name="settingsImage" Height="70" Width="70" Source="/icons/settings-light.png" Stretch="UniformToFill"/>
+
+                        </Button>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1" Background="White"></Border>
+                <Border Grid.Column="0" Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0">
+                            <Button x:Name="buttonPushupsImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                                <Image x:Name="pushupsImage" Height="50" Width="50" Source="/icons/push-up-light.png" Stretch="UniformToFill"/>
+                            </Button>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="0">
+                            <Button x:Name="buttonPushupsLabel" Content="100 pompek" Background="{x:Null}" FontSize="26" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0,1,1,1" HorizontalContentAlignment="Left"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0">
+                            <Button x:Name="buttonWeiderImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                                <Image x:Name="weiderImage" Height="50" Width="50" Source="/icons/abdominals-light.png" Stretch="UniformToFill"/>
+                            </Button>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="0">
+                            <Button x:Name="buttonWeiderLabel" Content="6 Weidera" Background="{x:Null}" FontSize="26" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0,1,1,1" HorizontalContentAlignment="Left"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0">
+                            <Button x:Name="buttonSpartakusImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                                <Image x:Name="spartakusImage" Height="50" Width="50" Source="/icons/sweat-light.png" Stretch="UniformToFill"/>
+                            </Button>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="0">
+                            <Button x:Name="buttonSpartakusLabel" Content="Spartakus" Background="{x:Null}" FontSize="26" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0,1,1,1" HorizontalContentAlignment="Left"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0">
+                            <Button x:Name="buttonGymImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                                <Image x:Name="gymImage" Height="50" Width="50" Source="/icons/weightlifting-light.png" Stretch="UniformToFill"/>
+                            </Button>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="0">
+                            <Button x:Name="buttonGymLabel" Content="Siłownia" Background="{x:Null}" FontSize="26" Foreground="White" BorderBrush="{x:Null}" BorderThickness="0,1,1,1" HorizontalContentAlignment="Left"/>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="6">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Grid.Row="0">
+                            <Button x:Name="buttonHelp" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                                <Image x:Name="helpImage" Height="70" Width="70" Source="/icons/help.png" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Center" FlowDirection="LeftToRight"/>
+                            </Button>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="0">
+                            <Button x:Name="buttonCortana" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                                <Image x:Name="cortanaImage" Height="70" Width="70" Source="/icons/cortana.png" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Center" FlowDirection="LeftToRight"/>
+                            </Button>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Border>
+        <Border Grid.Column="1" Grid.Row="0" Background="Black">
+            <Frame x:Name="mainFrame"></Frame>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,16 @@
+C:\Users\danie\Desktop\Projekty\Workout\Workout\bin\Debug\Workout.exe.config
+C:\Users\danie\Desktop\Projekty\Workout\Workout\bin\Debug\Workout.exe
+C:\Users\danie\Desktop\Projekty\Workout\Workout\bin\Debug\Workout.pdb
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\Workout.csprojAssemblyReference.cache
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\MainWindow.g.cs
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\StartPage.g.cs
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\App.g.cs
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\Workout_MarkupCompile.cache
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\Workout_MarkupCompile.lref
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\MainWindow.baml
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\StartPage.baml
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\Workout.g.resources
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\Workout.Properties.Resources.resources
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\Workout.csproj.GenerateResource.cache
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\Workout.exe
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\Workout.pdb

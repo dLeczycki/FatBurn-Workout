@@ -1,0 +1,87 @@
+﻿<Page x:Class="Workout.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Workout"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StartPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="0">
+            <Label x:Name="labelHello" Content="Witaj w swoim Doradcy Treningu!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" Foreground="White"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" Background="#FF212121"></Border>
+        <Border Grid.Row="2" Grid.Column="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="1" Grid.Column="1">
+                    <Grid Background="#FF212121">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Grid.Column="0">
+                            <Image x:Name="imagePlan" Source="/icons/plan-blue.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,20,20,20" />
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="0">
+                            <TextBox Background="{x:Null}" Foreground="White" FontSize="22" Text="Zaplanuję trening" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" BorderBrush="{x:Null}" IsReadOnly="True" SelectionBrush="{x:Null}" BorderThickness="0,0,0,0" />
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="3">
+                    <Grid Background="#FF212121">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Grid.Column="0">
+                            <Image x:Name="imagePuzzle" Source="/icons/puzzle-blue.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,20,20,20" />
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="0">
+                            <TextBox Background="{x:Null}" Foreground="White" FontSize="22" Text="Dopasuję trening do Twoich możliwości" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" Margin="0,0,0,0" BorderBrush="{x:Null}" IsReadOnly="True" SelectionBrush="{x:Null}" BorderThickness="0,0,0,0" />
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="5">
+                    <Grid Background="#FF212121">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Grid.Column="0">
+                            <Image x:Name="imageRising" Source="/icons/rising-blue.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,20,20,20" />
+                        </Border>
+                        <Border Grid.Row="1" Grid.Column="0">
+                            <TextBox Background="{x:Null}" Foreground="White" FontSize="22" Text="Ze mną szybko osiągniesz efekty" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" IsReadOnly="True" BorderThickness="0,0,0,0" />
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0">
+            <Label x:Name="labelCopywright" Content="All rights reserved" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Background="#FF2196F3" Foreground="White"/>
+
+        </Border>
+    </Grid>
+</Page>
