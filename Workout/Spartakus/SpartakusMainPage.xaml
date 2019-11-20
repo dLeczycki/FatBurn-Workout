@@ -1,0 +1,80 @@
+﻿<Page x:Class="Workout.Spartakus.SpartakusMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Workout.Spartakus"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SpartakusMainLayout">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="0" Grid.Row="0">
+            <Label Content="SPARTAKUS" FontSize="34px" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="1">
+            <Image Source="/icons/bar-light.png"/>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="0">
+                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Twój trening składa się z 10 ćwiczeń w 3 seriach</Label>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1">
+                    <Image Source="/icons/cardiogram-light.png"></Image>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="2">
+                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Każde z ćwiczeń będziesz wykonywać w określonym czasie</Label>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="3">
+                    <Image Source="/icons/cardiogram-light.png"></Image>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="4">
+                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Pomiędzy każdym ćwiczeniem następuje krótka przerwa - przerwa pomiędzy ćwiczeniami</Label>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="5">
+                    <Image Source="/icons/cardiogram-light.png"></Image>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="6">
+                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Po wykonaniu 10 ćwiczeń następuje długa przerwa - przerwa pomiędzy seriami</Label>
+                </Border>
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Grid.Row="0">
+                </Border>
+                <Border Grid.Column="1" Grid.Row="0">
+                    
+                </Border>
+                <Border Grid.Column="2" Grid.Row="0">
+                    
+                </Border>
+                <Border Grid.Column="3" Grid.Row="0">
+                    <Button Background="{x:Null}" BorderBrush="#FF2094FF" Foreground="White" HorizontalContentAlignment="Center" FontSize="24" Content="Dalej" Click="Button_Click"/>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

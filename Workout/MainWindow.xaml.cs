@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using Workout.Spartakus;
 
 namespace Workout
 {
@@ -54,7 +55,7 @@ namespace Workout
         }
 
         /// <summary>
-        /// Closes application and stops all threads on window close
+        /// Closes application and stops all threads on window close.
         /// </summary>
         /// <param name="e"></param>
         protected override void OnClosing(CancelEventArgs e)
@@ -62,7 +63,41 @@ namespace Workout
             Environment.Exit(0);
         }
 
+        /// <summary>
+        /// Opens Spartakus layout page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonSpartakus_Click(object sender, RoutedEventArgs e)
+        {
+            SpartakusMainPage spartakus = new SpartakusMainPage(this);
+            mainFrame.Content = spartakus;
+        }
 
+        /// <summary>
+        /// Sets Spartakus windows in correct order
+        /// </summary>
+        /// <param name="windowNumber">Page number: 1 - main, 2 - explanation, 3 - settings, 4 - workout</param>
+        public void setSpartakusWindow(int windowNumber)
+        {
+            Page page = new StartPage();
+            switch (windowNumber)
+            {
+                case 1:
+                    page = new SpartakusMainPage(this);
+                    break;
+                case 2:
+                    page = new SpartakusExplanationPage(this);
+                    break;
+                case 3:
+                    page = new SpartakusSettingsPage(this);
+                    break;
+                case 4:
+                    page = new SpartakusWorkoutPage(this);
+                    break;
+            }
+            mainFrame.Content = page;
+        }
 
         //-------------------------------------------------------------------------------//
         //---------------------------------SPEECH METHODS--------------------------------//
@@ -190,7 +225,6 @@ namespace Workout
             MessageBoxImage icon = MessageBoxImage.Warning;
             MessageBox.Show(text, caption, button, icon);
         }
-
 
         
     }

@@ -16,3 +16,11 @@ C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Workout.csproj.Gen
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Workout.csproj.CopyComplete
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Workout.exe
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Workout.pdb
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusMainPage.g.cs
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusMainPage.baml
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusExplanationPage.g.cs
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusSettingsPage.g.cs
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusWorkoutPage.g.cs
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusExplanationPage.baml
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusSettingsPage.baml
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusWorkoutPage.baml

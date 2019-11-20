@@ -32,7 +32,7 @@
                 </Border>
                 <Border Grid.Column="0" Grid.Row="1" Background="White"></Border>
                 <Border Grid.Column="0" Grid.Row="2">
-                    <Button x:Name="buttonPushupsImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                    <Button x:Name="buttonPushups" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" >
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -48,7 +48,7 @@
                         </Button>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="3">
-                    <Button x:Name="buttonWeiderImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                    <Button x:Name="buttonWeider" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -64,7 +64,7 @@
                             </Button>
                         </Border>
                 <Border Grid.Column="0" Grid.Row="4">
-                    <Button x:Name="buttonSpartakusImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                    <Button x:Name="buttonSpartakus" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" Click="buttonSpartakus_Click">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -80,7 +80,7 @@
                     </Button>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="5">
-                    <Button x:Name="buttonGymImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                    <Button x:Name="buttonGym" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -117,7 +117,7 @@
 
         </Border>
         <Border Grid.Column="1" Grid.Row="0" Background="Black">
-            <Frame x:Name="mainFrame"></Frame>
+            <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"></Frame>
         </Border>
     </Grid>
 </Window>

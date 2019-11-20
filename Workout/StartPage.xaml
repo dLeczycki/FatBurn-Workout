@@ -10,15 +10,17 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="0.2*"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Grid.Column="0">
             <Label x:Name="labelHello" Content="Witaj w swoim Doradcy Treningu!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" Foreground="White"/>
         </Border>
-        <Border Grid.Row="1" Grid.Column="0" Background="#FF212121"></Border>
+        <Border Grid.Row="1" Grid.Column="0">
+            <Image Source="/icons/bar-light.png" />
+        </Border>
         <Border Grid.Row="2" Grid.Column="0">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -80,7 +82,7 @@
             </Grid>
         </Border>
         <Border Grid.Row="3" Grid.Column="0">
-            <Label x:Name="labelCopywright" Content="All rights reserved" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Background="#FF2196F3" Foreground="White"/>
+            <Label x:Name="labelCopywright" Content="All rights reserved" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Background="#2094ff" Foreground="White"/>
 
         </Border>
     </Grid>
