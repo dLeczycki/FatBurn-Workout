@@ -29,7 +29,7 @@ namespace Workout.Spartakus
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.setSpartakusWindow(2);
+            mainWindow.setSpartakusWindow(MainWindow.SPARTAKUS_EXPLANATION_PAGE);
         }
     }
 }

@@ -26,11 +26,23 @@ namespace Workout
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Public const parameters
+        public const int START_PAGE = 0;
+        public const int SPARTAKUS_MAIN_PAGE = 1;
+        public const int SPARTAKUS_EXPLANATION_PAGE = 2;
+        public const int SPARTAKUS_SETTINGS_PAGE = 3;
+        public const int SPARTAKUS_WORKOUT_PAGE = 4;
+
         ///Microsoft Speech parameters
         public static SpeechRecognitionEngine pSRE;
         public static bool speechOn;
         public static SpeechSynthesizer pTTS;
         public Thread speechThread;
+
+        //Spartakus time parameters
+        public int exTime;
+        public int brTime;
+        public int lngBrTime;
 
         public MainWindow()
         {
@@ -83,17 +95,17 @@ namespace Workout
             Page page = new StartPage();
             switch (windowNumber)
             {
-                case 1:
+                case SPARTAKUS_MAIN_PAGE:
                     page = new SpartakusMainPage(this);
                     break;
-                case 2:
+                case SPARTAKUS_EXPLANATION_PAGE:
                     page = new SpartakusExplanationPage(this);
                     break;
-                case 3:
+                case SPARTAKUS_SETTINGS_PAGE:
                     page = new SpartakusSettingsPage(this);
                     break;
-                case 4:
-                    page = new SpartakusWorkoutPage(this);
+                case SPARTAKUS_WORKOUT_PAGE:
+                    page = new SpartakusWorkoutPage(this, exTime, brTime, lngBrTime);
                     break;
             }
             mainFrame.Content = page;
@@ -226,6 +238,16 @@ namespace Workout
             MessageBox.Show(text, caption, button, icon);
         }
 
-        
+        /// <summary>
+        /// MessageBox displayed when Spartakus time paramaeters are wrong
+        /// </summary>
+        public static void Message_WrongSpartakusParameters()
+        {
+            string text = "Podano złe wartości czasowe. Musisz wprowadzić liczby.";
+            string caption = "Złe dane";
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBox.Show(text, caption, button, icon);
+        }
     }
 }
