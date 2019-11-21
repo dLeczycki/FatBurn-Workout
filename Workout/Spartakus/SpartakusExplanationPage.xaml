@@ -84,10 +84,14 @@
                     <Button Name="backButton" Background="{x:Null}" BorderBrush="#FF2094FF" Foreground="White" HorizontalContentAlignment="Center" FontSize="24" Content="Wstecz" Click="backButton_Click"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="0">
-
+                    <Button Background="{x:Null}">
+                        <Image Source="/icons/pause.png" Margin="5"></Image>
+                    </Button>
                 </Border>
                 <Border Grid.Column="2" Grid.Row="0">
-
+                    <Button Background="{x:Null}">
+                        <Image Source="/icons/play.png" Margin="5"></Image>
+                    </Button>
                 </Border>
                 <Border Grid.Column="3" Grid.Row="0">
                     <Button Name="nextButton" Background="{x:Null}" BorderBrush="#FF2094FF" Foreground="White" HorizontalContentAlignment="Center" FontSize="24" Content="Dalej" Click="nextButton_Click"/>

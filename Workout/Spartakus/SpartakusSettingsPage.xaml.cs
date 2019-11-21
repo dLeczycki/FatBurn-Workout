@@ -29,7 +29,7 @@ namespace Workout.Spartakus
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.setSpartakusWindow(MainWindow.SPARTAKUS_EXPLANATION_PAGE);
+            mainWindow.setWindow(MainWindow.SPARTAKUS_EXPLANATION_PAGE);
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
@@ -38,7 +38,7 @@ namespace Workout.Spartakus
             {
                 if(!setSpartacusParameters()) throw new Exception();
 
-                mainWindow.setSpartakusWindow(MainWindow.SPARTAKUS_WORKOUT_PAGE);
+                mainWindow.setWindow(MainWindow.SPARTAKUS_WORKOUT_PAGE);
             }
             catch(Exception ex)
             {
@@ -46,6 +46,10 @@ namespace Workout.Spartakus
             }
         }
 
+        /// <summary>
+        /// Sets spartakus training, and breaks times.
+        /// </summary>
+        /// <returns></returns>
         private bool setSpartacusParameters()
         {
             int[] values = new int[3];

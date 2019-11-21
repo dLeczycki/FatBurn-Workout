@@ -29,12 +29,12 @@ namespace Workout.Spartakus
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.setSpartakusWindow(MainWindow.SPARTAKUS_MAIN_PAGE);
+            mainWindow.setWindow(MainWindow.SPARTAKUS_MAIN_PAGE);
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.setSpartakusWindow(MainWindow.SPARTAKUS_SETTINGS_PAGE);
+            mainWindow.setWindow(MainWindow.SPARTAKUS_SETTINGS_PAGE);
         }
     }
 }

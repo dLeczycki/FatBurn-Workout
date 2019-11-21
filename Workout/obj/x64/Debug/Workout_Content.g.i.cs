@@ -8,7 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/cardiogram-dark.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/cardiogram-light.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/pause-dark.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/pause.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/play-dark.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/play.png")]
 
 

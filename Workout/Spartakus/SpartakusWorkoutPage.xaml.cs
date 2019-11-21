@@ -239,15 +239,68 @@ namespace Workout.Spartakus
             labelSeries.Content = "Seria: " + exSeries + "/" + SERIES_NUMBER;
         }
 
+        /// <summary>
+        /// Goes to previous page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.setSpartakusWindow(MainWindow.SPARTAKUS_SETTINGS_PAGE);
+            mainWindow.setWindow(MainWindow.SPARTAKUS_SETTINGS_PAGE);
         }
 
+        /// <summary>
+        /// Stops training and resets its progress.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
             backButton.IsEnabled = true;
             stopTraining();
+            pauseButton.IsEnabled = false;
+            pauseImage.Source = imageSourceOfString("/icons/pause-dark.png");
+            playButton.IsEnabled = true;
+            playImage.Source = imageSourceOfString("/icons/play.png");
+        }
+
+        /// <summary>
+        /// Pauses training
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            dt.Stop();
+            pauseButton.IsEnabled = false;
+            pauseImage.Source = imageSourceOfString("/icons/pause-dark.png");
+            playButton.IsEnabled = true;
+            playImage.Source = imageSourceOfString("/icons/play.png");
+        }
+
+        /// <summary>
+        /// Plays training after pause
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void playButton_Click(object sender, RoutedEventArgs e)
+        {
+            dt.Start();
+            pauseButton.IsEnabled = true;
+            pauseImage.Source = imageSourceOfString("/icons/pause.png");
+            playButton.IsEnabled = false;
+            playImage.Source = imageSourceOfString("/icons/play-dark.png");
+        }
+
+        /// <summary>
+        /// Changes string path to image source
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private ImageSource imageSourceOfString(string path)
+        {
+            Uri imageUri = new Uri(path, UriKind.Relative);
+            return new BitmapImage(imageUri);
         }
     }
 }

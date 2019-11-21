@@ -77,10 +77,14 @@
                     <Button Name="backButton" Background="{x:Null}" BorderBrush="#FF2094FF" Foreground="White" HorizontalContentAlignment="Center" FontSize="24" Content="Wstecz" IsEnabled="False" Click="backButton_Click"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="0">
-
+                    <Button Name="pauseButton" Background="{x:Null}" Click="pauseButton_Click">
+                        <Image Name="pauseImage" Source="/icons/pause.png" Margin="5"></Image>
+                    </Button>
                 </Border>
                 <Border Grid.Column="2" Grid.Row="0">
-
+                    <Button Name="playButton" Background="{x:Null}" Click="playButton_Click">
+                        <Image Name="playImage" Source="/icons/play-dark.png" Margin="5" IsEnabled="False"></Image>
+                    </Button>
                 </Border>
                 <Border Grid.Column="3" Grid.Row="0">
                     <Button Name="nextButton" Background="{x:Null}" BorderBrush="#FF2094FF" Foreground="White" HorizontalContentAlignment="Center" FontSize="24" Content="Przerwij trening" Click="nextButton_Click"/>

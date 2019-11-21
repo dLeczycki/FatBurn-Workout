@@ -26,6 +26,8 @@ namespace Workout
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static MainWindow mainWindow;
+
         //Public const parameters
         public const int START_PAGE = 0;
         public const int SPARTAKUS_MAIN_PAGE = 1;
@@ -34,9 +36,9 @@ namespace Workout
         public const int SPARTAKUS_WORKOUT_PAGE = 4;
 
         ///Microsoft Speech parameters
-        public static SpeechRecognitionEngine pSRE;
-        public static bool speechOn;
-        public static SpeechSynthesizer pTTS;
+        public SpeechRecognitionEngine pSRE;
+        public bool speechOn;
+        public SpeechSynthesizer pTTS;
         public Thread speechThread;
 
         //Spartakus time parameters
@@ -48,7 +50,9 @@ namespace Workout
         {
             InitializeComponent();
             setStartupWindowParameters();
+            mainWindow = this;
             speechThread = new Thread(new ThreadStart(setUpSpeech));
+            speechThread.SetApartmentState(ApartmentState.STA);
             speechThread.Start();
         }
 
@@ -57,7 +61,7 @@ namespace Workout
         //---------------------------------WINDOW METHODS--------------------------------//
         //-------------------------------------------------------------------------------//
         /// <summary>
-        /// Method which initializes Startup Window and its parameters and outlook.
+        /// Initializes Startup Window and its parameters and outlook.
         /// </summary>
         private void setStartupWindowParameters()
         {
@@ -87,14 +91,17 @@ namespace Workout
         }
 
         /// <summary>
-        /// Sets Spartakus windows in correct order
+        /// Displays selected page
         /// </summary>
         /// <param name="windowNumber">Page number: 1 - main, 2 - explanation, 3 - settings, 4 - workout</param>
-        public void setSpartakusWindow(int windowNumber)
+        public void setWindow(int windowNumber)
         {
             Page page = new StartPage();
             switch (windowNumber)
             {
+                case START_PAGE:
+                    page = new StartPage();
+                    break;
                 case SPARTAKUS_MAIN_PAGE:
                     page = new SpartakusMainPage(this);
                     break;
@@ -107,6 +114,9 @@ namespace Workout
                 case SPARTAKUS_WORKOUT_PAGE:
                     page = new SpartakusWorkoutPage(this, exTime, brTime, lngBrTime);
                     break;
+                default:
+                    page = new StartPage();
+                    break;
             }
             mainFrame.Content = page;
         }
@@ -117,33 +127,36 @@ namespace Workout
         /// <summary>
         /// Method which sets basic Speech Parameters
         /// </summary>
-        private static void setUpSpeech()
+        private void setUpSpeech()
         {
             speechOn = true;
             pTTS = new SpeechSynthesizer();
             try
             {
                 pTTS.SetOutputToDefaultAudioDevice();
-                CultureInfo ci = new CultureInfo("en-US");
+                CultureInfo ci = new CultureInfo("pl-PL");
                 pSRE = new SpeechRecognitionEngine(ci);
                 pSRE.SetInputToDefaultAudioDevice();
                 pSRE.SpeechRecognized += PSRE_SpeechRecognizedPL;
+
+                pTTS.SpeakAsync("Witaj w swoim doradcy treningu");
                 // -------------------------------------------------------------------------
                 // Budowa gramatyki numer 1 - POLECENIA SYSTEMOWE
                 // Budowa gramatyki numer 1 - określenie komend:
-                Choices stopChoice = new Choices();
-                stopChoice.Add("Stop");
-                stopChoice.Add("Pomoc");
+                Choices mainChoices = new Choices();
+                string[] mainCommands = new string[] { "Wyjdź", "Pomoc", "Wyłącz syntezator", "Ustawienia", "Sto pompek", "Szóstka Łejdera", "Spartakus", "Siłownia" };
+                mainChoices.Add(mainCommands);
 
                 // Budowa gramatyki numer 1 - definiowanie składni gramatyki:
                 GrammarBuilder buildGrammarSystem = new GrammarBuilder();
-                buildGrammarSystem.Append(stopChoice);
+                buildGrammarSystem.Append(mainChoices);
 
                 // Budowa gramatyki numer 1 - utworzenie gramatyki:
-                Grammar grammarSystem = new Grammar(buildGrammarSystem); //
-                                                                         // -------------------------------------------------------------------------
-                                                                         // Budowa gramatyki numer 2 - POLECENIA DLA PROGRAMU
-                                                                         // Budowa gramatyki numer 2 - określenie komend:
+                Grammar grammarSystem = new Grammar(buildGrammarSystem); 
+
+                // -------------------------------------------------------------------------      
+                // Budowa gramatyki numer 2 - POLECENIA DLA PROGRAMU   
+                // Budowa gramatyki numer 2 - określenie komend:
                 Choices chNumbers = new Choices(); //możliwy wybór słów
                 Choices chOperations = new Choices();
 
@@ -182,23 +195,49 @@ namespace Workout
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public static void PSRE_SpeechRecognizedPL(object sender, SpeechRecognizedEventArgs e)
+        public void PSRE_SpeechRecognizedPL(object sender, SpeechRecognizedEventArgs e)
         {
+            string[] mainCommands = new string[] { "Wyjdź", "Pomoc", "Wyłącz syntezator", "Ustawienia", "Sto pompek", "Szóstka Łejdera", "Spartakus", "Siłownia" };
             string txt = e.Result.Text;
             string comments;
             float confidence = e.Result.Confidence;
-            comments = String.Format("ROZPOZNANO (wiarygodność: {0:0.000}): '{1}'",
-           e.Result.Confidence, txt);
-            Console.WriteLine(comments);
             if (confidence > 0.40)
             {
-                if (txt.IndexOf("Stop") >= 0)
+                if (txt.IndexOf("Wyłącz syntezator") >= 0)
                 {
                     speechOn = false;
                 }
                 else if (txt.IndexOf("Pomoc") >= 0)
                 {
-                    pTTS.SpeakAsync("Składnia polecenia: Oblicz liczba operacja liczba. Na przykład: oblicz dwa plus trzy.");
+                    pTTS.SpeakAsync("Pomoc");
+                }
+                else if(txt.IndexOf("Wyłącz syntezator") >= 0)
+                {
+
+                }
+                else if (txt.IndexOf("Ustawienia") >= 0)
+                {
+
+                }
+                else if(txt.IndexOf("Sto pompek") >= 0)
+                {
+
+                }
+                else if(txt.IndexOf("Szóstka Łejdera") >= 0)
+                {
+
+                }
+                else if (txt.IndexOf("Spartakus") >= 0)
+                {
+                    Application.Current.Dispatcher.Invoke((Action)delegate
+                    {
+                        setWindow(SPARTAKUS_MAIN_PAGE);
+                    });
+                        
+                }
+                else if (txt.IndexOf("Siłownia") >= 0)
+                {
+
                 }
                 else if ((txt.IndexOf("Oblicz") >= 0) && (txt.IndexOf("plus") >= 0) &&
                (speechOn == true))
