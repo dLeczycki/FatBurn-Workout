@@ -73,6 +73,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -82,6 +83,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Gym\GymExplanationPage.xaml.cs">
+      <DependentUpon>GymExplanationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gym\GymMainPage.xaml.cs">
+      <DependentUpon>GymMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gym\GymSettingsPage.xaml.cs">
+      <DependentUpon>GymSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gym\GymWorkoutPage.xaml.cs">
+      <DependentUpon>GymWorkoutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pushups\PushupsExplanationPage.xaml.cs">
+      <DependentUpon>PushupsExplanationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pushups\PushupsMainPage.xaml.cs">
+      <DependentUpon>PushupsMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pushups\PushupsSettingsPage.xaml.cs">
+      <DependentUpon>PushupsSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pushups\PushupsWorkoutPage.xaml.cs">
+      <DependentUpon>PushupsWorkoutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Spartakus\SpartakusExplanationPage.xaml.cs">
       <DependentUpon>SpartakusExplanationPage.xaml</DependentUpon>
     </Compile>
@@ -97,6 +122,31 @@
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Weider\WeiderMainPage.xaml.cs">
+      <DependentUpon>WeiderMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Weider\WeiderSettingsPage.xaml.cs">
+      <DependentUpon>WeiderSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Weider\WeiderWorkoutPage.xaml.cs">
+      <DependentUpon>WeiderWorkoutPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Gym\GymExplanationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gym\GymMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gym\GymSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gym\GymWorkoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,6 +159,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pushups\PushupsExplanationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pushups\PushupsMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pushups\PushupsSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pushups\PushupsWorkoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Spartakus\SpartakusExplanationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +192,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Weider\WeiderMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Weider\WeiderSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Weider\WeiderWorkoutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -224,6 +302,24 @@
     <Resource Include="icons\play.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\wEx1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\wEx2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\wEx3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\wEx4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\wEx5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\wEx6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

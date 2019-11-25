@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\Debug\
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\Debug\
 Workout
 none
 false
 DEBUG;TRACE
-C:\Users\danie\Desktop\Projekty\Workout\Workout\App.xaml
-2-593694634
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\App.xaml
+13686862434
 
-61662749874
-13-1505183044
-MainWindow.xaml;StartPage.xaml;
+172116102878
+15364250101
+Gym\GymExplanationPage.xaml;Gym\GymMainPage.xaml;Gym\GymSettingsPage.xaml;Gym\GymWorkoutPage.xaml;MainWindow.xaml;Spartakus\SpartakusExplanationPage.xaml;Spartakus\SpartakusMainPage.xaml;Spartakus\SpartakusSettingsPage.xaml;Spartakus\SpartakusWorkoutPage.xaml;StartPage.xaml;Weider\WeiderMainPage.xaml;Weider\WeiderSettingsPage.xaml;Weider\WeiderWorkoutPage.xaml;
 
-False
+True
 

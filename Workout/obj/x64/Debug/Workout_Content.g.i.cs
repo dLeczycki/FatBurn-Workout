@@ -8,9 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/pause-dark.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/pause.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/play-dark.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/play.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/wex6.png")]
 
 
