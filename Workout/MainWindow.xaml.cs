@@ -18,6 +18,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using Workout.Spartakus;
+using Workout.Weider;
+using Workout.Gym;
 
 namespace Workout
 {
@@ -30,10 +32,20 @@ namespace Workout
 
         //Public const parameters
         public const int START_PAGE = 0;
-        public const int SPARTAKUS_MAIN_PAGE = 1;
-        public const int SPARTAKUS_EXPLANATION_PAGE = 2;
-        public const int SPARTAKUS_SETTINGS_PAGE = 3;
-        public const int SPARTAKUS_WORKOUT_PAGE = 4;
+
+        public const int SPARTAKUS_MAIN_PAGE = 11;
+        public const int SPARTAKUS_EXPLANATION_PAGE = 12;
+        public const int SPARTAKUS_SETTINGS_PAGE = 13;
+        public const int SPARTAKUS_WORKOUT_PAGE = 14;
+
+        public const int WEIDER_MAIN_PAGE = 21;
+        public const int WEIDER_SETTINGS_PAGE = 23;
+        public const int WEIDER_WORKOUT_PAGE = 24;
+
+        public const int GYM_MAIN_PAGE = 31;
+        public const int GYM_EXPLANATION_PAGE = 32;
+        public const int GYM_SETTINGS_PAGE = 33;
+        public const int GYM_WORKOUT_PAGE = 34;
 
         ///Microsoft Speech parameters
         public SpeechRecognitionEngine pSRE;
@@ -45,6 +57,7 @@ namespace Workout
         public int exTime;
         public int brTime;
         public int lngBrTime;
+        public int progress;
 
         public MainWindow()
         {
@@ -90,6 +103,18 @@ namespace Workout
             mainFrame.Content = spartakus;
         }
 
+        private void buttonWeider_Click(object sender, RoutedEventArgs e)
+        {
+            WeiderMainPage weider = new WeiderMainPage(this);
+            mainFrame.Content = weider;
+        }
+
+        private void buttonGym_Click(object sender, RoutedEventArgs e)
+        {
+            GymMainPage silownia = new GymMainPage(this);
+            mainFrame.Content = silownia;
+        }
+
         /// <summary>
         /// Displays selected page
         /// </summary>
@@ -114,6 +139,30 @@ namespace Workout
                 case SPARTAKUS_WORKOUT_PAGE:
                     page = new SpartakusWorkoutPage(this, exTime, brTime, lngBrTime);
                     break;
+
+                case WEIDER_MAIN_PAGE:
+                    page = new WeiderMainPage(this);
+                    break;
+                case WEIDER_SETTINGS_PAGE:
+                    page = new WeiderSettingsPage(this);
+                    break;
+                case WEIDER_WORKOUT_PAGE:
+                    page = new WeiderWorkoutPage(this, exTime, brTime, lngBrTime, progress);
+                    break;
+
+                case GYM_MAIN_PAGE:
+                    page = new GymMainPage(this);
+                    break;
+                case GYM_EXPLANATION_PAGE:
+                    page = new GymExplanationPage(this);
+                    break;
+                case GYM_SETTINGS_PAGE:
+                    page = new GymSettingsPage(this);
+                    break;
+                case GYM_WORKOUT_PAGE:
+                    page = new GymWorkoutPage(this, exTime, brTime, lngBrTime);
+                    break;
+
                 default:
                     page = new StartPage();
                     break;
@@ -225,6 +274,10 @@ namespace Workout
                 }
                 else if(txt.IndexOf("Szóstka Łejdera") >= 0)
                 {
+                    Application.Current.Dispatcher.Invoke((Action)delegate
+                    {
+                        setWindow(WEIDER_MAIN_PAGE);
+                    });
 
                 }
                 else if (txt.IndexOf("Spartakus") >= 0)
@@ -237,6 +290,10 @@ namespace Workout
                 }
                 else if (txt.IndexOf("Siłownia") >= 0)
                 {
+                    Application.Current.Dispatcher.Invoke((Action)delegate
+                    {
+                        setWindow(GYM_MAIN_PAGE);
+                    });
 
                 }
                 else if ((txt.IndexOf("Oblicz") >= 0) && (txt.IndexOf("plus") >= 0) &&
@@ -283,6 +340,15 @@ namespace Workout
         public static void Message_WrongSpartakusParameters()
         {
             string text = "Podano złe wartości czasowe. Musisz wprowadzić liczby.";
+            string caption = "Złe dane";
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBox.Show(text, caption, button, icon);
+        }
+
+        public static void Message_WrongWeiderParameters()
+        {
+            string text = "Podano złe wartości. Należy wprowadzić liczby całkowite.";
             string caption = "Złe dane";
             MessageBoxButton button = MessageBoxButton.OK;
             MessageBoxImage icon = MessageBoxImage.Warning;
