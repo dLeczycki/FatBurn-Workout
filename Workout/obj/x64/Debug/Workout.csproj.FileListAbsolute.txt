@@ -57,11 +57,13 @@ E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Weider\WeiderSe
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Weider\WeiderWorkoutPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Weider\WeiderSettingsPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Weider\WeiderWorkoutPage.baml
-E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymExplanationPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymMainPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymSettingsPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymWorkoutPage.g.cs
-E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymExplanationPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymMainPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymSettingsPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymWorkoutPage.baml
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\MyCheckBox.baml
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\App.baml
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\CustomizedCheckBox.g.cs
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\CustomizedCheckBox.baml

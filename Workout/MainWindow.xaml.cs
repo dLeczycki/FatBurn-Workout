@@ -43,7 +43,6 @@ namespace Workout
         public const int WEIDER_WORKOUT_PAGE = 24;
 
         public const int GYM_MAIN_PAGE = 31;
-        public const int GYM_EXPLANATION_PAGE = 32;
         public const int GYM_SETTINGS_PAGE = 33;
         public const int GYM_WORKOUT_PAGE = 34;
 
@@ -152,9 +151,6 @@ namespace Workout
 
                 case GYM_MAIN_PAGE:
                     page = new GymMainPage(this);
-                    break;
-                case GYM_EXPLANATION_PAGE:
-                    page = new GymExplanationPage(this);
                     break;
                 case GYM_SETTINGS_PAGE:
                     page = new GymSettingsPage(this);

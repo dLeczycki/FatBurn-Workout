@@ -29,8 +29,9 @@ namespace Workout.Gym
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.setWindow(MainWindow.GYM_EXPLANATION_PAGE);
+            mainWindow.setWindow(MainWindow.GYM_MAIN_PAGE);
         }
+
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
@@ -54,9 +55,9 @@ namespace Workout.Gym
         {
             int[] values = new int[3];
             string[] parameters = new string[3];
-            parameters[0] = textExTime.Text;
-            parameters[1] = textBrTime.Text;
-            parameters[2] = textLngBrTime.Text;
+           // parameters[0] = textExTime.Text;
+           // parameters[1] = textBrTime.Text;
+           // parameters[2] = textLngBrTime.Text;
 
             for (int i = 0; i < 3; i++)
             {
@@ -75,6 +76,11 @@ namespace Workout.Gym
             mainWindow.brTime = values[1];
             mainWindow.lngBrTime = values[2];
             return true;
+        }
+
+        private void CheckBox1_Checked(object sender, RoutedEventArgs e)
+        {
+           // CheckBox1.Content = "Checked";
         }
     }
 }

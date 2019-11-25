@@ -82,8 +82,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Gym\GymExplanationPage.xaml.cs">
-      <DependentUpon>GymExplanationPage.xaml</DependentUpon>
+    <Compile Include="Gym\CustomizedCheckBox.xaml.cs">
+      <DependentUpon>CustomizedCheckBox.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Gym\GymMainPage.xaml.cs">
       <DependentUpon>GymMainPage.xaml</DependentUpon>
@@ -118,7 +119,7 @@
     <Compile Include="Weider\WeiderWorkoutPage.xaml.cs">
       <DependentUpon>WeiderWorkoutPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Gym\GymExplanationPage.xaml">
+    <Page Include="Gym\CustomizedCheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Gym\GymWorkoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gym\MyCheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -291,6 +296,26 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\wEx6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\abs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\arm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\leg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\schoulder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
