@@ -302,5 +302,10 @@ namespace Workout.Spartakus
             Uri imageUri = new Uri(path, UriKind.Relative);
             return new BitmapImage(imageUri);
         }
+
+        public bool buttonIsEnabled(Button button)
+        {
+            return button.IsEnabled;
+        }
     }
 }

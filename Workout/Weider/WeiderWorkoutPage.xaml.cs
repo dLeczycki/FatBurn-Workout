@@ -34,7 +34,6 @@ namespace Workout.Weider
         public const int BREAK_STAGE = 2;
         public const int LONG_BREAK_STAGE = 3;
         public const int TRAINING_FINISHED = -1;
-        public static readonly string[] EXERCISE_NAMES = new string[6] { "ĆWICZENIE PIERWSZE", "ĆWICZENIE DRUGIE", "ĆWICZENIE TRZECIE", "ĆWICZENIE CZWARTE", "ĆWICZENIE PIĄTE", "ĆWICZENIE SZÓSTE"};
         public static readonly string[] EXERCISE_DESCRIPTION = new string[6] 
             {   "Kładziemy się na płaskim podłożu z rękami wzdłuż tułowia. Podnosimy na zmianę raz jedną, raz drugą nogę pamiętając o zachowaniu kąta 90 stopni w kolanie i biodrze. Podczas podnoszeń, unosimy jednocześnie barki bez odrywania tułowia od podłoża."
                ,"Kładziemy się na płaskim podłożu, unosimy jednocześnie obie nogi pamiętając o odpowiednim kącie nachylenia i uniesieniu barków. Jeśli to nam pomoże, można objąć kolana dłońmi, lecz nie przytrzymujmy ich zbyt mocno."
@@ -212,8 +211,7 @@ namespace Workout.Weider
         private void setExerciseWindow()
         {
             //Exercise name label
-            labelExName.Content = EXERCISE_NAMES[exNumber - 1];
-            labelExDescription.Content = EXERCISE_DESCRIPTION[exNumber - 1];
+            labelExDescription.Text = EXERCISE_DESCRIPTION[exNumber - 1];
 
             //Exercise image
             setExImage("/img/wEx" + exNumber + ".png");
@@ -228,7 +226,6 @@ namespace Workout.Weider
         /// </summary>
         private void setExerciseWindowToPreparation()
         {
-            labelExName.Content = "";
             setExImage("/img/preparation.png");
         }
 
@@ -238,9 +235,6 @@ namespace Workout.Weider
         /// <param name="isShort"></param>
         private void setExerciseWindowToBreak(bool isShort)
         {
-            //Exercise name label
-            labelExName.Content = "";
-
             //Exercise Image
             if (isShort) setExImage("/img/break.png");
             else setExImage("/img/longBreak.png");
@@ -251,7 +245,6 @@ namespace Workout.Weider
         /// </summary>
         private void setExerciseWindowToFinish()
         {
-            labelExName.Content = "";
             setExImage("/img/trainingFinished.png");
             labelEx.Content = "";
             labelSeries.Content = "";

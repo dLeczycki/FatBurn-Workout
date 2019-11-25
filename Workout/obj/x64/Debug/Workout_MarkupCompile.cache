@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\
 Workout
 none
 false
 DEBUG;TRACE
-E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\App.xaml
-14-658559108
+C:\Users\danie\Desktop\Projekty\Workout\Workout\App.xaml
+17-1305657472
 
-17-969683843
-15364250101
-Gym\CustomizedCheckBox.xaml;Gym\GymMainPage.xaml;Gym\GymSettingsPage.xaml;Gym\GymWorkoutPage.xaml;Gym\MyCheckBox.xaml;MainWindow.xaml;Spartakus\SpartakusExplanationPage.xaml;Spartakus\SpartakusMainPage.xaml;Spartakus\SpartakusSettingsPage.xaml;Spartakus\SpartakusWorkoutPage.xaml;StartPage.xaml;Weider\WeiderMainPage.xaml;Weider\WeiderSettingsPage.xaml;Weider\WeiderWorkoutPage.xaml;
+21-450058134
+16-134994331
+Gym\GymExplanationPage.xaml;Gym\GymMainPage.xaml;Gym\GymSettingsPage.xaml;Gym\GymWorkoutPage.xaml;MainWindow.xaml;Pushups\PushupsExplanationPage.xaml;Pushups\PushupsMainPage.xaml;Pushups\PushupsSettingsPage.xaml;Pushups\PushupsWorkoutPage.xaml;Spartakus\SpartakusExplanationPage.xaml;Spartakus\SpartakusMainPage.xaml;Spartakus\SpartakusSettingsPage.xaml;Spartakus\SpartakusWorkoutPage.xaml;StartPage.xaml;Weider\WeiderMainPage.xaml;Weider\WeiderSettingsPage.xaml;Weider\WeiderWorkoutPage.xaml;
 
 False
 

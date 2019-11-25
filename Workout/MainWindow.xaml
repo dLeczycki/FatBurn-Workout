@@ -32,7 +32,7 @@
                 </Border>
                 <Border Grid.Column="0" Grid.Row="1" Background="White"></Border>
                 <Border Grid.Column="0" Grid.Row="2">
-                    <Button x:Name="buttonPushups" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" >
+                    <Button x:Name="buttonPushups" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" Click="buttonPushups_Click" >
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>

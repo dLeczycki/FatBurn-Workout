@@ -73,6 +73,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -94,6 +95,18 @@
     </Compile>
     <Compile Include="Gym\GymWorkoutPage.xaml.cs">
       <DependentUpon>GymWorkoutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pushups\PushupsExplanationPage.xaml.cs">
+      <DependentUpon>PushupsExplanationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pushups\PushupsMainPage.xaml.cs">
+      <DependentUpon>PushupsMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pushups\PushupsSettingsPage.xaml.cs">
+      <DependentUpon>PushupsSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pushups\PushupsWorkoutPage.xaml.cs">
+      <DependentUpon>PushupsWorkoutPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Spartakus\SpartakusExplanationPage.xaml.cs">
       <DependentUpon>SpartakusExplanationPage.xaml</DependentUpon>
@@ -151,6 +164,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pushups\PushupsExplanationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pushups\PushupsMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pushups\PushupsSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pushups\PushupsWorkoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Spartakus\SpartakusExplanationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -27,41 +27,26 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
+                </Grid.RowDefinitions>
                 
                 
                 <Border Grid.Row="0" Grid.Column="0">
                     <Grid>
-
-                        <Border Grid.Column="0" Grid.Row="0">
-                            <Label x:Name="labelCounter" Content="0" FontSize="100" Foreground="White" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center"/>
-                        </Border>
-                        <Border>
-                            <Label x:Name="labelExDescription" Content="" FontSize="10" Foreground="White" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center"/>
-                        </Border>
-                        
-                    </Grid>
-                </Border>
-                
-                
-                
-                
-                <Border Grid.Row="0" Grid.Column="1">
-                    <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="5*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-
                         
-
                         <Border Grid.Column="0" Grid.Row="0">
-                            <Label x:Name="labelExName" Content="Nazwa ćwiczenia" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="0,10,0,0" FontWeight="Bold" Foreground="White"/>
+                            <Label x:Name="labelCounter" Content="0" FontSize="160" Foreground="White" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center"/>
                         </Border>
                         <Border Grid.Column="0" Grid.Row="1">
-                            <Image x:Name="imageEx" Source="/img/example.jpg" Margin="10,10,10,10"/>
-                        </Border>
-                        <Border Grid.Column="0" Grid.Row="2">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -69,17 +54,30 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Border Grid.Row="0" Grid.Column="0">
-                                    <Label x:Name="labelEx" Content="Ćwiczenie: 0/6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10"  Foreground="White"/>
+                                    <Label x:Name="labelEx" Content="Ćwiczenie: 0/6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"  Foreground="White"/>
                                 </Border>
                                 <Border Grid.Row="0" Grid.Column="1">
-                                    <Label x:Name="labelSeries" Content="Seria: 0/1" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                                    <Label x:Name="labelSeries" Content="Seria: 0/1" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
                                 </Border>
                                 <Border Grid.Row="0" Grid.Column="3">
-                                    <Label x:Name="labelExRep" Content="Powtórzenie: 0/6" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                                    <Label x:Name="labelExRep" Content="Powtórzenie: 0/6" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
                                 </Border>
                             </Grid>
                         </Border>
                     </Grid>
+                </Border>
+                
+                
+                <Border Grid.Row="0" Grid.Column="1">
+                    <Grid>
+                        <Border Grid.Column="0" Grid.Row="0">
+                            <Image x:Name="imageEx" Source="/img/example.jpg" Margin="10,10,10,10"/>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                    <TextBox x:Name="labelExDescription" TextWrapping="Wrap" FontSize="16" Foreground="#FF2094FF" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" Background="{x:Null}" FontWeight="Bold" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Margin="0"></TextBox>
                 </Border>
             </Grid>
         </Border>
