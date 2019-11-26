@@ -33,7 +33,19 @@
                     <Label x:Name="labelSeriesNumber" Content="Seria: x/5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"  Foreground="White"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="1">
-                    <Label x:Name="labelCounter" Content="0" FontSize="240" Margin="-60" Foreground="White" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="1">
+                            <Label x:Name="labelCounter" Content="0" FontSize="240" Margin="-60" Foreground="White" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                        </Border>
+                        <Border Grid.Column="2">
+                            <Label x:Name="labelCounterNext" Content="2" FontSize="120" Margin="-60" Foreground="White" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </Border>
+                    </Grid>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="2">
                     <Button Name="nextSeriesButton" Padding="30 0 30 0" Background="{x:Null}" BorderBrush="#FF2094FF" Foreground="White" HorizontalContentAlignment="Center" FontSize="24" Content="Zrobione!" HorizontalAlignment="Center" Click="nextSeriesButton_Click"/>
