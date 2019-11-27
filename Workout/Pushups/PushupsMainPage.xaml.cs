@@ -27,7 +27,7 @@ namespace Workout.Pushups
             this.mainWindow = mainWindow;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void nextButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.setWindow(MainWindow.PUSHUPS_EXPLANATION_PAGE);
         }

@@ -103,6 +103,9 @@ namespace Workout.Pushups
             }
         }
 
+        /// <summary>
+        /// Sets pushups list according to parameters
+        /// </summary>
         private void setExerciseSeriesList()
         {
 

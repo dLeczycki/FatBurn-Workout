@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
+using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -27,7 +29,7 @@ namespace Workout.Spartakus
             this.mainWindow = mainWindow;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void nextButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.setWindow(MainWindow.SPARTAKUS_EXPLANATION_PAGE);
         }

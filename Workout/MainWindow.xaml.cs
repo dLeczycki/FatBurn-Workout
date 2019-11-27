@@ -55,8 +55,10 @@ namespace Workout
         public const int PUSHUPS_SETTINGS_PAGE = 43;
         public const int PUSHUPS_WORKOUT_PAGE = 44;
 
+        
         ///Microsoft Speech parameters
         public SpeechRecognitionEngine pSRE;
+        public bool speechWait;
         public bool speechOn;
         public SpeechSynthesizer pTTS;
         public Thread speechThread;
@@ -218,6 +220,7 @@ namespace Workout
         /// </summary>
         private void setUpSpeech()
         {
+            speechWait = true;
             speechOn = true;
             pTTS = new SpeechSynthesizer();
             try
@@ -231,66 +234,70 @@ namespace Workout
                 pTTS.SpeakAsync("Witaj w swoim doradcy treningu");
 
                 //Build Grammars
-                string[] mainCommands = new string[] { "Wyjdź", "Pomoc", "Wyłącz syntezator", "Ustawienia", "Sto pompek", "Szóstka Łejdera", "Spartakus", "Siłownia" };
+                string[] mainCommands = new string[] { "Wyjdź", "Pomoc", "Wyłącz syntezator", "Ustawienia", "Sto pompek", "Pompki", "Szóstka Łejdera", "Spartakus", "Siłownia" };
                 string[] navigationCommands = new string[] { "Dalej", "Wstecz", "Następna", "Wróć", "Strona główna" };
-                string[] workoutCommands = new string[] { "Rozpocznij trening", "Przerwij trening", "Stop", "Pauza", "Wznów", "Start" };
+                string[] workoutCommands = new string[] { "Rozpocznij trening", "Przerwij trening", "Stop", "Pauza", "Wznów", "Start", "Zrobione", "Zrobiłem", "Zrobiłam" };
 
-                buildSimpleGrammar(mainCommands);
-                buildSimpleGrammar(navigationCommands);
-                buildSimpleGrammar(workoutCommands);
+                buildGrammar(mainCommands);
+                buildGrammar(navigationCommands);
+                buildGrammar(workoutCommands);
 
-                // -------------------------------------------------------------------------      
-                // Budowa gramatyki numer 2 - POLECENIA DLA PROGRAMU   
-                // Budowa gramatyki numer 2 - określenie komend:
-                Choices chNumbers = new Choices(); //możliwy wybór słów
-                Choices chOperations = new Choices();
+                string[] firstSpartakusSetting = new string[] { "Ustaw pierwszy czas na ", "Ustaw czas na jedno ćwiczenie na ", "Ustaw czas na ćwiczenie na", "ćwiczenie", };
+                string[] secondSpartakusSetting = new string[] { "Ustaw drugi czas na ", "Ustaw czas na krótką przerwę na", "krótka przerwa" };
+                string[] thirdSpartakusSetting = new string[] { "Ustaw trzeci czas na ", "Ustaw czas na długą przerwę na", "długa przerwa" };
+                string[] spartakusSetting = new string[firstSpartakusSetting.Length + secondSpartakusSetting.Length + thirdSpartakusSetting.Length];
+                firstSpartakusSetting.CopyTo(spartakusSetting, 0);
+                secondSpartakusSetting.CopyTo(spartakusSetting, firstSpartakusSetting.Length);
+                thirdSpartakusSetting.CopyTo(spartakusSetting, firstSpartakusSetting.Length + secondSpartakusSetting.Length);
 
-                string[] numbers = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-                string[] operations = new string[] { "plus", "minus", "razy", "przez" };
+                string[] numbers = new string[] { "jeden", "dwa", "dwie", "trzy", "cztery", "pięć", "sześć", "siedem", "osiem", "dziewięć", "dziesięć" };
+                string[] teens = new string[] { "jedenaście", "dwanaście", "trzynaście", "czternaście", "piętnaście", "szesnaście", "siedemnaście", "osiemnaście", "dziewiętnaście" };
+                string[] dozens = new string[] { "dwadzieścia", "trzydzieści", "czterdzieści", "pięćdziesiąt", "sześćdziesiąt", "siedemdziesiąt", "osiemdziesiąt", "dziewięćdziesiąt" };
+                string[] hundreds = new string[] { "sto", "dwieście", "trzysta", "czterysta", "pięćset" };
 
-                chNumbers.Add(numbers);
-                chOperations.Add(operations);
-                // Budowa gramatyki numer 2 - definiowanie składni gramatyki dodawania:
-                GrammarBuilder grammarProgramOperations = new GrammarBuilder();
-                grammarProgramOperations.Append("Oblicz");
-                grammarProgramOperations.Append(chNumbers);
-                grammarProgramOperations.Append(chOperations);
-                grammarProgramOperations.Append(chNumbers);
+                buildGrammar(spartakusSetting, numbers, new string[] { "sekund" });
+                buildGrammar(spartakusSetting, teens, new string[] { "sekund" });
+                buildGrammar(spartakusSetting, dozens, new string[] { "sekund" });
+                buildGrammar(spartakusSetting, hundreds, new string[] { "sekund" });
 
-                // Budowa gramatyki numer 2 - utworzenie gramatyki:
-                Grammar g_WhatIsXoperacjaY = new Grammar(grammarProgramOperations); //gramatyka
+                buildGrammar(spartakusSetting, hundreds, numbers, new string[] { "sekund" });
+                buildGrammar(spartakusSetting, hundreds, teens, new string[] { "sekund" });
+                buildGrammar(spartakusSetting, hundreds, dozens, new string[] { "sekund" });
 
-                //Załadowanie gramatyk
-                pSRE.LoadGrammarAsync(g_WhatIsXoperacjaY);
+                buildGrammar(spartakusSetting, hundreds, dozens, numbers, new string[] { "sekund" });
 
                 // Ustaw rozpoznawanie przy wykorzystaniu wielu gramatyk:
                 pSRE.RecognizeAsync(RecognizeMode.Multiple);
 
-                while (speechOn == true) {; }
+                while (speechWait == true) {; }
             }
             catch (Exception e)
             {
                 Message_SpeechServiceFailed();
             }
         }
+
         /// <summary>
-        /// Builds speech grammar which intercepts commands and later does not use its words in program.
+        /// Builds grammar which command consists of words given in string arrays
         /// </summary>
-        /// <param name="simpleCommandsArray">Array of simple indivisable string commands</param>
-        private void buildSimpleGrammar(string[] simpleCommandsArray)
+        /// <param name="commandParts"></param>
+        private void buildGrammar(params string[][] commandParts)
         {
-            //Sets up choices
-            Choices spartakusChoices = new Choices();
+            List<Choices> chList = new List<Choices>();
+            Choices newChoice;
+            for (int i = 0; i < commandParts.Length; i++)
+            {
+                newChoice = new Choices();
+                newChoice.Add(commandParts[i]);
+                chList.Add(newChoice);
+            }
+            GrammarBuilder grammarBuilder = new GrammarBuilder();
+            foreach (Choices choice in chList)
+            {
+                grammarBuilder.Append(choice);
+            }
+            Grammar grammarSystem = new Grammar(grammarBuilder);
 
-            //adds array to choices
-            spartakusChoices.Add(simpleCommandsArray);
-
-            //builds grammar
-            GrammarBuilder buildGrammarSystem = new GrammarBuilder();
-            buildGrammarSystem.Append(spartakusChoices);
-            Grammar grammarSystem = new Grammar(buildGrammarSystem);
-
-            //adds grammar to engine
             pSRE.LoadGrammarAsync(grammarSystem);
         }
 
@@ -303,13 +310,13 @@ namespace Workout
         {
             string txt = e.Result.Text;
             float confidence = e.Result.Confidence;
-            if (confidence > 0.40 && speechOn)
+            if (confidence > 0.40 && speechWait)
             {
-                //
                 if (txt.IndexOf("Wyłącz syntezator") >= 0)
                 {
+                    pTTS.SpeakAsyncCancelAll();
                     pTTS.SpeakAsync("Wyłączyłeś syntezator");
-                    speechOn = false;
+                    speechWait = false;
                 }
                 else if (txt.IndexOf("Pomoc") >= 0)
                 {
@@ -319,7 +326,7 @@ namespace Workout
                 {
 
                 }
-                else if (txt.IndexOf("Sto pompek") >= 0)
+                else if (txt.IndexOf("Sto pompek") >= 0 || txt.IndexOf("Pompki") >= 0)
                 {
                     Application.Current.Dispatcher.Invoke((Action)delegate
                     {
@@ -442,26 +449,98 @@ namespace Workout
                         }
                         else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0)
                         {
-                            Application.Current.Dispatcher.Invoke(new Action(() =>
+                            try
                             {
-                                try
+                                Application.Current.Dispatcher.Invoke(new Action(() =>
                                 {
                                     ButtonAutomationPeer peer = new ButtonAutomationPeer(spartakusWorkoutPage.backButton);
                                     IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
                                     invokeProv.Invoke();
-                                }
-                                catch (Exception ex)
+                                }));
+                            }
+                            catch (Exception ex)
+                            {
+                                pTTS.SpeakAsyncCancelAll();
+                                pTTS.SpeakAsync("Polecenie jest nieprawidłowe");
+                                Message_WrongWeiderParameters();
+                            }
+                        }
+                        break;
+                    case PUSHUPS_MAIN_PAGE:
+                        if (txt.IndexOf("Dalej") >= 0 || txt.IndexOf("Następna") >= 0)
+                        {
+                            Application.Current.Dispatcher.Invoke((Action)delegate
+                            {
+                                setWindow(PUSHUPS_EXPLANATION_PAGE);
+                            });
+                        }
+                        break;
+                    case PUSHUPS_EXPLANATION_PAGE:
+                        PushupsExplanationPage pushupsExplanationPage = (PushupsExplanationPage)currentPage;
+                        if (txt.IndexOf("Dalej") >= 0 || txt.IndexOf("Następna") >= 0)
+                        {
+                            Application.Current.Dispatcher.Invoke((Action)delegate
+                            {
+                                setWindow(PUSHUPS_SETTINGS_PAGE);
+                            });
+                        }
+                        else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0)
+                        {
+                            Application.Current.Dispatcher.Invoke(new Action(() =>
+                            {
+                                ButtonAutomationPeer peer = new ButtonAutomationPeer(pushupsExplanationPage.backButton);
+                                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                                invokeProv.Invoke();
+                            }));
+                        }
+                        break;
+                    case PUSHUPS_SETTINGS_PAGE:
+                        PushupsSettingsPage pushupsSettingsPage = (PushupsSettingsPage)currentPage;
+                        if (txt.IndexOf("Rozpocznij trening") >= 0)
+                        {
+                            Application.Current.Dispatcher.Invoke(new Action(() =>
+                            {
+                                ButtonAutomationPeer peer = new ButtonAutomationPeer(pushupsSettingsPage.nextButton);
+                                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                                invokeProv.Invoke();
+                            }));
+                        }
+                        else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0)
+                        {
+                            Application.Current.Dispatcher.Invoke(new Action(() =>
+                            {
+                                ButtonAutomationPeer peer = new ButtonAutomationPeer(pushupsSettingsPage.backButton);
+                                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                                invokeProv.Invoke();
+                            }));
+                        }
+                        break;
+                    case PUSHUPS_WORKOUT_PAGE:
+                        PushupsWorkoutPage pushupsWorkoutPage = (PushupsWorkoutPage)currentPage;
+                        if (txt.IndexOf("Zrobione") >= 0 || txt.IndexOf("Zrobiłem") >= 0 || txt.IndexOf("Zrobiłam") >= 0 || txt.IndexOf("Dalej") >= 0)
+                        {
+                            try
+                            {
+                                Application.Current.Dispatcher.Invoke(new Action(() =>
                                 {
-                                    Application.Current.Dispatcher.Invoke(new Action(() =>
-                                    {
-                                        ButtonAutomationPeer peer = new ButtonAutomationPeer(spartakusWorkoutPage.pauseButton);
-                                        IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                                        invokeProv.Invoke();
-                                    }));
-                                    pTTS.SpeakAsyncCancelAll();
-                                    pTTS.SpeakAsync("Polecenie jest nieprawidłowe");
-                                    Message_WrongWeiderParameters();
-                                }
+                                    ButtonAutomationPeer peer = new ButtonAutomationPeer(pushupsWorkoutPage.nextSeriesButton);
+                                    IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                                    invokeProv.Invoke();
+                                }));
+                            }
+                            catch (Exception ex)
+                            {
+                                pTTS.SpeakAsyncCancelAll();
+                                pTTS.SpeakAsync("Wykonano wszystkie serie");
+                            }
+                        }
+                        else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0)
+                        {
+                            Application.Current.Dispatcher.Invoke(new Action(() =>
+                            {
+                                ButtonAutomationPeer peer = new ButtonAutomationPeer(pushupsWorkoutPage.backButton);
+                                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                                invokeProv.Invoke();
                             }));
                         }
                         break;
@@ -475,6 +554,10 @@ namespace Workout
             }
         }
 
+        private bool checkFirstSpartakusSetting(string txt)
+        {
+            return false;
+        }
 
         //-------------------------------------------------------------------------------//
         //--------------------------------MESSAGE BOXES----------------------------------//
@@ -521,6 +604,6 @@ namespace Workout
             MessageBox.Show(text, caption, button, icon);
         }
 
-        
+
     }
 }
