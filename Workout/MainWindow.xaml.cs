@@ -67,10 +67,10 @@ namespace Workout
         public readonly string[] SPARTAKUS_THIRD_SETTING = new string[] { "Ustaw trzeci czas na ", "Ustaw czas na długą przerwę na", "długa przerwa" };
 
         //Arrays for Pushups commands
-        public readonly string[] PUSHUPS_TEST_SETTING = new string[] { "Ustaw wynik testu na", "Wynik testu to" };
-        public readonly string[] PUSHUPS_TRAINING_DAY_SETTING = new string[] { "Ustaw dzień treningu na", "dzień treningu to" };
+        public readonly string[] PUSHUPS_TEST_SETTING = new string[] { "Ustaw wynik testu na", "Wynik testu" };
+        public readonly string[] PUSHUPS_TRAINING_DAY_SETTING = new string[] { "Ustaw dzień treningu na", "dzień treningu" };
         public readonly string[] PUSHUPS = new string[] { "pompki", "pompek" };
-        public readonly string[] DAYS = new string[] { "dzień", "dni" };
+        public readonly string[] DAYS = new string[] { "dzień" };
 
         //Arrays for number commands
         public readonly string[] NUMBERS = new string[] { "jeden", "dwa", "trzy", "cztery", "pięć", "sześć", "siedem", "osiem", "dziewięć", "dziesięć", "dwie" };
@@ -79,7 +79,6 @@ namespace Workout
         public readonly string[] DOZENS = new string[] { "dwadzieścia", "trzydzieści", "czterdzieści", "pięćdziesiąt", "sześćdziesiąt", "siedemdziesiąt", "osiemdziesiąt", "dziewięćdziesiąt" };
         public readonly string[] HUNDREDS = new string[] { "sto", "dwieście", "trzysta", "czterysta", "pięćset", "sześćset", "siedemset", "osiemset", "dziewięćset" };
         public readonly string[] SECONDS = new string[] { "sekund", "sekundy" };
-
 
         ///Microsoft Speech parameters
         public SpeechRecognitionEngine pSRE;
@@ -104,6 +103,11 @@ namespace Workout
         public int currentPageNumber;
         public Page currentPage;
 
+
+
+        //-------------------------------------------------------------------------------//
+        //---------------------------------WINDOW METHODS--------------------------------//
+        //-------------------------------------------------------------------------------//
         public MainWindow()
         {
             InitializeComponent();
@@ -114,10 +118,6 @@ namespace Workout
             speechThread.Start();
         }
 
-
-        //-------------------------------------------------------------------------------//
-        //---------------------------------WINDOW METHODS--------------------------------//
-        //-------------------------------------------------------------------------------//
         /// <summary>
         /// Initializes Startup Window and its parameters and outlook.
         /// </summary>
@@ -137,11 +137,6 @@ namespace Workout
             Environment.Exit(0);
         }
 
-        /// <summary>
-        /// Opens Spartakus layout page.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void buttonSpartakus_Click(object sender, RoutedEventArgs e)
         {
             setWindow(SPARTAKUS_MAIN_PAGE);
@@ -164,7 +159,67 @@ namespace Workout
 
         private void buttonHelp_Click(object sender, RoutedEventArgs e)
         {
-
+            string[] nextFlowArray = new string[] { "Dalej/Następna - przejdź do następnej strony" };
+            string[] nextBackFlowArray = new string[] { "Dalej/Następna - przejdź do następnej strony", "Wstecz/Wróć - powrót do poprzedniej strony" };
+            switch (currentPageNumber)
+            {
+                case START_PAGE:
+                    string[] startPageOperations = new string[] {
+                        "100 pompek/pompki - wyświetla trening pompek",
+                        "6 Weidera - wyświetla trening 6 Weidera",
+                        "Spartakus - wyświetla trening spartakusa",
+                        "Siłownia - wyświetla trening na siłowni",
+                        "Wyłącz/włącz mikrofon",
+                        "Wyłącz/Włącz syntezator"
+                    };
+                    Message_OperationsAllowed(startPageOperations);
+                    break;
+                case SPARTAKUS_MAIN_PAGE:
+                    Message_OperationsAllowed(nextFlowArray);
+                    break;
+                case SPARTAKUS_EXPLANATION_PAGE:
+                    Message_OperationsAllowed(nextBackFlowArray);
+                    break;
+                case SPARTAKUS_SETTINGS_PAGE:
+                    string[] spartakusSettingOperations = new string[] {
+                        "Rozpocznij trening - rozpoczyna trening o zadanych parametrach", "Wstecz/Wróć - powrót do poprzedniej strony",
+                        "Ustaw pierwszy czas na / Ustaw czas na jedno ćwiczenie na / Ustaw czas na ćwiczenie na / ćwiczenie XX sekund - ustawia pierwszy czas na wybraną liczbę sekund",
+                        "Ustaw drugi czas na / Ustaw czas na krótką przerwę na / krótka przerwa XX sekund - ustawia pierwszy czas na wybraną liczbę sekund",
+                        "Ustaw trzeci czas na / Ustaw czas na długą przerwę na / długa przerwa XX sekund - ustawia pierwszy czas na wybraną liczbę sekund"
+                    };
+                    Message_OperationsAllowed(spartakusSettingOperations);
+                    break;
+                case SPARTAKUS_WORKOUT_PAGE:
+                    string[] spartakusWorkoutOperations = new string[] {
+                        "Przerwij trening - przerywa trening, trening jest łądowany od początku",
+                        "Stop / Pauza - Zatrzymuje licznik",
+                        "Wznów / Start - Wznawia odliczanie licznika"};
+                    Message_OperationsAllowed(spartakusWorkoutOperations);
+                    break;
+                case PUSHUPS_MAIN_PAGE:
+                    Message_OperationsAllowed(nextFlowArray);
+                    break;
+                case PUSHUPS_EXPLANATION_PAGE:
+                    Message_OperationsAllowed(nextBackFlowArray);
+                    break;
+                case PUSHUPS_SETTINGS_PAGE:
+                    string[] pushupsSettingOperations = new string[] {
+                        "Wstecz/Wróć - powrót do poprzedniej strony",
+                        "Rozpocznij trening - rozpoczyna trening o zadanych parametrach",
+                        "Wstecz/Wróć - powrót do poprzedniej strony",
+                        "Ustaw wynik testu na / Wynik testu XXX pompki/pompek",
+                        "Ustaw dzień treningu na / dzień treningu XX dzień"
+                    };
+                    Message_OperationsAllowed(pushupsSettingOperations);
+                    break;
+                case PUSHUPS_WORKOUT_PAGE:
+                    string[] pushupsWorkoutOperations = new string[] {
+                        "Wstecz/Wróć - powrót do poprzedniej strony",
+                         "Zrobione / Zrobiłem / Zrobiłam - ustawia kolejną serię pompek"
+                    };
+                    Message_OperationsAllowed(pushupsWorkoutOperations);
+                    break;
+            }
         }
 
         private void buttonMic_Click(object sender, RoutedEventArgs e)
@@ -284,6 +339,9 @@ namespace Workout
             Uri imageUri = new Uri(path, UriKind.Relative);
             return new BitmapImage(imageUri);
         }
+
+
+
         //-------------------------------------------------------------------------------//
         //---------------------------------SPEECH METHODS--------------------------------//
         //-------------------------------------------------------------------------------//
@@ -386,11 +444,7 @@ namespace Workout
                 if (txt.IndexOf("Wyłącz syntezator") >= 0) turnOffSpeaker();
                 else if (txt.IndexOf("Włącz syntezator") >= 0) turnOnSpeaker();
                 else if (txt.IndexOf("Wyłącz mikrofon") >= 0) turnOffMic();
-                else if (txt.IndexOf("Pomoc") >= 0)
-                {
-                    speechText("Treść pomocy");
-                }
-                else if (txt.IndexOf("Ustawienia") >= 0) { }
+                else if (txt.IndexOf("Pomoc") >= 0) invokePageButtonMethod(buttonHelp);
                 else if (txt.IndexOf("Sto pompek") >= 0 || txt.IndexOf("Pompki") >= 0) setWindow(PUSHUPS_MAIN_PAGE);
                 else if (txt.IndexOf("Szóstka Łejdera") >= 0) setWindow(WEIDER_MAIN_PAGE);
                 else if (txt.IndexOf("Spartakus") >= 0) setWindow(SPARTAKUS_MAIN_PAGE);
@@ -625,6 +679,7 @@ namespace Workout
         }
 
 
+
         //-------------------------------------------------------------------------------//
         //--------------------------------MESSAGE BOXES----------------------------------//
         //-------------------------------------------------------------------------------//
@@ -670,6 +725,23 @@ namespace Workout
             MessageBox.Show(text, caption, button, icon);
         }
 
+        /// <summary>
+        /// MessageBox displaying operations allowed on page.
+        /// </summary>
+        /// <param name="operations"></param>
+        public static void Message_OperationsAllowed(string[] operations)
+        {
+            string caption = "Komendy głosowe na stronie";
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Warning;
 
+            string text = "";
+            for (int i = 0; i < operations.Length; i++)
+            {
+                text += operations[i] + Environment.NewLine;
+            }
+
+            MessageBox.Show(text, caption, button, icon);
+        }
     }
 }
