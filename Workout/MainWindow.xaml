@@ -24,8 +24,8 @@
                 </Grid.RowDefinitions>
                 <Border Grid.Column="0" Grid.Row="0">
                     <Grid>
-                        <Button x:Name="buttonSettingsImage" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
-                            <Image x:Name="settingsImage" Height="70" Width="70" Source="/icons/settings-light.png" Stretch="UniformToFill"/>
+                        <Button x:Name="buttonHelp" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" Click="buttonHelp_Click">
+                            <Image x:Name="helpImage" Height="70" Width="70" Source="/icons/help.png" Stretch="UniformToFill"/>
 
                         </Button>
                     </Grid>
@@ -102,13 +102,13 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Border Grid.Column="0" Grid.Row="0">
-                            <Button x:Name="buttonHelp" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
-                                <Image x:Name="helpImage" Height="70" Width="70" Source="/icons/help.png" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Center" FlowDirection="LeftToRight"/>
+                            <Button x:Name="buttonMic" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" Click="buttonMic_Click">
+                                <Image x:Name="micImage" Height="50" Width="50" Source="/icons/microphone-light.png" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Center" FlowDirection="LeftToRight"/>
                             </Button>
                         </Border>
                         <Border Grid.Column="1" Grid.Row="0">
-                            <Button x:Name="buttonCortana" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
-                                <Image x:Name="cortanaImage" Height="70" Width="70" Source="/icons/cortana.png" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Center" FlowDirection="LeftToRight"/>
+                            <Button x:Name="buttonSpeaker" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" Click="buttonSpeaker_Click">
+                                <Image x:Name="speakerImage" Height="50" Width="50" Source="/icons/speaker-light.png" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Center" FlowDirection="LeftToRight"/>
                             </Button>
                         </Border>
                     </Grid>

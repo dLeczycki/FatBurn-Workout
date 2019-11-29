@@ -83,6 +83,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Gym\GymExplanationPage.xaml.cs">
+      <DependentUpon>GymExplanationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gym\GymMainPage.xaml.cs">
       <DependentUpon>GymMainPage.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
     <Compile Include="Weider\WeiderWorkoutPage.xaml.cs">
       <DependentUpon>WeiderWorkoutPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Gym\GymExplanationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gym\GymMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -231,7 +238,6 @@
     <Resource Include="icons\abdominals-blue.png" />
     <Resource Include="icons\abdominals-light.png" />
     <Resource Include="icons\abdominals.png" />
-    <Resource Include="icons\cortana.png" />
     <Resource Include="icons\help.png" />
     <Resource Include="icons\plan-blue.png" />
     <Resource Include="icons\push-up-blue.png" />
@@ -315,24 +321,18 @@
     <Resource Include="img\wEx6.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\abs.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\arm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\chest.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\leg.png">
+    <Resource Include="icons\microphone-dark.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\schoulder.png" />
+    <Resource Include="icons\microphone-light.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\speaker-dark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\speaker-light.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

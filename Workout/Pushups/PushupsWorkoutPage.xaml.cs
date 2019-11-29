@@ -27,6 +27,7 @@ namespace Workout.Pushups
 
         private int currentSeries;
         private int[] pushups;
+        private int excess;
 
         private List<int[]> exerciseSeriesList;
         public PushupsWorkoutPage(MainWindow mainWindow, int trainingDay, int testResult)
@@ -46,23 +47,68 @@ namespace Workout.Pushups
 
         private void nextSeriesButton_Click(object sender, RoutedEventArgs e)
         {
-
+            currentSeries++;
+            setTrainingParameters();
         }
-        private void resetTrainingParameters()
+
+        private void setTrainingParameters()
         {
-            currentSeries = 1;
             try
             {
-                pushups = exerciseSeriesList[trainingDay - 1];
-                labelSeriesNumber.Content = "Seria " + currentSeries + "/" + pushups.Length;
+                if (excess == 0)
+                {
+                    labelSeriesNumber.Content = "Seria " + currentSeries + "/" + pushups.Length;
+                    labelCounter.Content = pushups[currentSeries];
+                    mainWindow.speechText("Liczba pompek w serii " + pushups[currentSeries]);
+                    labelCounterNext.Content = pushups[currentSeries + 1];
+                }
+                else if (excess == 1)
+                {
+                    labelSeriesNumber.Content = "Seria " + currentSeries + "/" + pushups.Length;
+                    labelCounterNext.FontSize = 80;
+                    labelCounterNext.Content = "Koniec";
+                    labelCounter.FontSize = 180;
+                    labelCounter.Content = "MAX";
+                    excess++;
+                    mainWindow.speechText("Liczba pompek w serii to twój maks, daj z siebie wszystko!");
+                }
+                else if (excess == 2)
+                {
+                    labelCounterNext.Content = "";
+                    labelCounter.Content = "Koniec";
+                    nextSeriesButton.IsEnabled = false;
+                    mainWindow.speechText("Koniec treningu");
+                }
+
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                labelCounterNext.FontSize = 100;
+                labelCounterNext.Content = "MAX";
+                excess++;
+            }
+
+        }
+
+        private void resetTrainingParameters()
+        {
+            pushups = exerciseSeriesList[trainingDay - 1];
+            currentSeries = 1;
+            excess = 0;
+            try
+            {
+                setTrainingParameters();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                setBreakTime();
+                setTestDayLayout();
             }
         }
 
+        /// <summary>
+        /// Sets pushups list according to parameters
+        /// </summary>
         private void setExerciseSeriesList()
         {
 
@@ -156,12 +202,15 @@ namespace Workout.Pushups
             }
         }
 
-        private void setBreakTime()
+        private void setTestDayLayout()
         {
+            mainWindow.speechText("Dzisiaj wykonaj test");
             labelCounter.FontSize = 92;
             labelCounter.Content = "Dzisiaj wykonaj test!";
             labelSeriesNumber.Content = "";
             nextSeriesButton.IsEnabled = false;
         }
+
+
     }
 }

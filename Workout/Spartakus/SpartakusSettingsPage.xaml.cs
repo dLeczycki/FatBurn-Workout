@@ -76,5 +76,20 @@ namespace Workout.Spartakus
             mainWindow.lngBrTime = values[2];
             return true;
         }
+
+        public void setSpartakusFirstTime(int number)
+        {
+            textExTime.Text = number.ToString();
+        }
+
+        public void setSpartakusSecondTime(int number)
+        {
+            textBrTime.Text = number.ToString();
+        }
+
+        public void setSpartakusThirdTime(int number)
+        {
+            textLngBrTime.Text = number.ToString();
+        }
     }
 }

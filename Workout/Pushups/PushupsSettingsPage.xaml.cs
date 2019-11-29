@@ -84,5 +84,15 @@ namespace Workout.Pushups
             mainWindow.trainingDay = values[1];
             return true;
         }
+
+        public void setTestResult(int number)
+        {
+            textTestResult.Text = number.ToString();
+        }
+
+        public void setTrainingDay(int number)
+        {
+            textTrainingDay.Text = number.ToString();
+        }
     }
 }
