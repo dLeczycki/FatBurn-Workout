@@ -57,7 +57,7 @@ namespace Workout
 
         //Public const command arrays
         //Arrays for global commands
-        public readonly string[] MAIN_COMMANDS = new string[] { "Wyjdź", "Pomoc", "Wyłącz syntezator", "Ustawienia", "Sto pompek", "Pompki", "Szóstka Łejdera", "Spartakus", "Siłownia" };
+        public readonly string[] MAIN_COMMANDS = new string[] { "Wyjdź", "Pomoc", "Wyłącz syntezator", "Włącz syntezator", "Wyłącz mikrofon", "Sto pompek", "Pompki", "Szóstka Łejdera", "Spartakus", "Siłownia" };
         public readonly string[] NAVIGATION_COMMANDS = new string[] { "Dalej", "Wstecz", "Następna", "Wróć", "Strona główna" };
         public readonly string[] WORKOUT_COMMANDS = new string[] { "Rozpocznij trening", "Przerwij trening", "Stop", "Pauza", "Wznów", "Start", "Zrobione", "Zrobiłem", "Zrobiłam" };
 
@@ -83,7 +83,7 @@ namespace Workout
 
         ///Microsoft Speech parameters
         public SpeechRecognitionEngine pSRE;
-        public bool speechWait;
+        public bool micOn;
         public bool speechOn;
         public SpeechSynthesizer pTTS;
         public Thread speechThread;
@@ -160,6 +160,23 @@ namespace Workout
         private void buttonPushups_Click(object sender, RoutedEventArgs e)
         {
             setWindow(PUSHUPS_MAIN_PAGE);
+        }
+
+        private void buttonHelp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonMic_Click(object sender, RoutedEventArgs e)
+        {
+            if (micOn) turnOffMic();
+            else turnOnMic();
+        }
+
+        private void buttonSpeaker_Click(object sender, RoutedEventArgs e)
+        {
+            if (speechOn) turnOffSpeaker();
+            else turnOnSpeaker();
         }
 
         /// <summary>
@@ -257,6 +274,16 @@ namespace Workout
 
         }
 
+        /// <summary>
+        /// Changes string path to image source
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private ImageSource imageSourceOfString(string path)
+        {
+            Uri imageUri = new Uri(path, UriKind.Relative);
+            return new BitmapImage(imageUri);
+        }
         //-------------------------------------------------------------------------------//
         //---------------------------------SPEECH METHODS--------------------------------//
         //-------------------------------------------------------------------------------//
@@ -265,7 +292,7 @@ namespace Workout
         /// </summary>
         private void setUpSpeech()
         {
-            speechWait = true;
+            micOn = true;
             speechOn = true;
             pTTS = new SpeechSynthesizer();
             try
@@ -313,7 +340,7 @@ namespace Workout
                 // Ustaw rozpoznawanie przy wykorzystaniu wielu gramatyk:
                 pSRE.RecognizeAsync(RecognizeMode.Multiple);
 
-                while (speechWait == true) {; }
+                while (micOn == true) {; }
             }
             catch (Exception e)
             {
@@ -354,15 +381,11 @@ namespace Workout
         {
             string txt = e.Result.Text;
             float confidence = e.Result.Confidence;
-            if (confidence > 0.40 && speechWait)
+            if (confidence > 0.40 && micOn)
             {
-                if (txt.IndexOf("Wyłącz syntezator") >= 0)
-                {
-                    pTTS.SpeakAsyncCancelAll();
-                    speechText("Wyłączyłeś syntezator");
-                    speechOn = false;
-                    speechWait = false;
-                }
+                if (txt.IndexOf("Wyłącz syntezator") >= 0) turnOffSpeaker();
+                else if (txt.IndexOf("Włącz syntezator") >= 0) turnOnSpeaker();
+                else if (txt.IndexOf("Wyłącz mikrofon") >= 0) turnOffMic();
                 else if (txt.IndexOf("Pomoc") >= 0)
                 {
                     speechText("Treść pomocy");
@@ -501,16 +524,18 @@ namespace Workout
             {
                 Application.Current.Dispatcher.Invoke(new Action(() =>
                 {
-                    ButtonAutomationPeer peer = new ButtonAutomationPeer(button);
-                    IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                    invokeProv.Invoke();
+                    if (button.IsEnabled)
+                    {
+                        ButtonAutomationPeer peer = new ButtonAutomationPeer(button);
+                        IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                        invokeProv.Invoke();
+                    }
                 }));
             }
             catch (Exception ex)
             {
                 speechText("Komenda niedozwolona");
             }
-
         }
 
         /// <summary>
@@ -556,6 +581,49 @@ namespace Workout
         {
             if (speechOn) pTTS.SpeakAsync(txt);
         }
+
+        public void turnOnMic()
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                micOn = true;
+                speechText("Włączyłeś mikrofon");
+                micImage.Source = imageSourceOfString("/icons/microphone-light.png");
+            }));
+        }
+
+        public void turnOffMic()
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                pTTS.SpeakAsyncCancelAll();
+                speechText("Wyłączyłeś Mikrofon");
+                micOn = false;
+                micImage.Source = imageSourceOfString("/icons/microphone-dark.png");
+            }));
+        }
+
+        public void turnOnSpeaker()
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                speechOn = true;
+                speechText("Włączyłeś syntezator");
+                speakerImage.Source = imageSourceOfString("/icons/speaker-light.png");
+            }));
+        }
+
+        public void turnOffSpeaker()
+        {
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                pTTS.SpeakAsyncCancelAll();
+                speechText("Wyłączyłeś syntezator");
+                speechOn = false;
+                speakerImage.Source = imageSourceOfString("/icons/speaker-dark.png");
+            }));
+        }
+
 
         //-------------------------------------------------------------------------------//
         //--------------------------------MESSAGE BOXES----------------------------------//

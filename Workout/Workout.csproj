@@ -238,7 +238,6 @@
     <Resource Include="icons\abdominals-blue.png" />
     <Resource Include="icons\abdominals-light.png" />
     <Resource Include="icons\abdominals.png" />
-    <Resource Include="icons\cortana.png" />
     <Resource Include="icons\help.png" />
     <Resource Include="icons\plan-blue.png" />
     <Resource Include="icons\push-up-blue.png" />
@@ -320,6 +319,20 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\wEx6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\microphone-dark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\microphone-light.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\speaker-dark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\speaker-light.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
