@@ -51,7 +51,7 @@
                     <Image Source="/icons/cardiogram-light.png"></Image>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="6">
-                    <TextBox FontSize="20px" Foreground="White" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}">Pamiętaj! Pomiędzy dniami treningu rób jeden dzień przerwy, po trzech dniach conajmniej dwa dni. Mięśni nie możesz przemęczać.</TextBox>
+                    <TextBox FontSize="20px" Foreground="White" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}">Pamiętaj! Pomiędzy dniami treningu rób jeden dzień przerwy, po trzech dniach treningu conajmniej dwa dni przerwy. Mięśni nie możesz przemęczać!</TextBox>
                 </Border>
             </Grid>
         </Border>

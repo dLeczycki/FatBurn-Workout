@@ -59,6 +59,7 @@ namespace Workout.Pushups
                 {
                     labelSeriesNumber.Content = "Seria " + currentSeries + "/" + pushups.Length;
                     labelCounter.Content = pushups[currentSeries];
+                    mainWindow.speechText("Liczba pompek w serii " + pushups[currentSeries]);
                     labelCounterNext.Content = pushups[currentSeries + 1];
                 }
                 else if (excess == 1)
@@ -69,12 +70,14 @@ namespace Workout.Pushups
                     labelCounter.FontSize = 180;
                     labelCounter.Content = "MAX";
                     excess++;
+                    mainWindow.speechText("Liczba pompek w serii to twój maks, daj z siebie wszystko!");
                 }
                 else if (excess == 2)
                 {
                     labelCounterNext.Content = "";
                     labelCounter.Content = "Koniec";
                     nextSeriesButton.IsEnabled = false;
+                    mainWindow.speechText("Koniec treningu");
                 }
 
             }
@@ -201,6 +204,7 @@ namespace Workout.Pushups
 
         private void setTestDayLayout()
         {
+            mainWindow.speechText("Dzisiaj wykonaj test");
             labelCounter.FontSize = 92;
             labelCounter.Content = "Dzisiaj wykonaj test!";
             labelSeriesNumber.Content = "";

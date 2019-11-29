@@ -85,26 +85,29 @@ namespace Workout.Spartakus
         /// <param name="e"></param>
         private void trainingTimeCounter(object sender, EventArgs e)
         {
+            mainWindow.speechCountThree(currTimeValue-1);
             if (trainingStage == PREPARATION_STAGE) // short time for preparation
             {
-                if (currTimeValue > 0) currTimeValue--;
+                if (currTimeValue > 1) currTimeValue--;
                 else
                 {
                     currTimeValue = exTime;
                     trainingStage = EXERCISE_STAGE;
                     setExerciseWindow();
                     setSeriesLabel();
+                    Console.Beep();
                 }
             }
             else if (trainingStage == EXERCISE_STAGE) // training exercise
             {
-                if (currTimeValue > 0) currTimeValue--;
+                if (currTimeValue > 1) currTimeValue--;
                 else if (exNumber < EXERCISES_NUMBER)
                 {
                     currTimeValue = brTime;
                     trainingStage = BREAK_STAGE;
                     setExerciseWindowToBreak(true);
                     exNumber++;
+                    Console.Beep();
                 }
                 else if (exSeries < SERIES_NUMBER)
                 {
@@ -113,6 +116,7 @@ namespace Workout.Spartakus
                     setExerciseWindowToBreak(false);
                     exNumber = 1;
                     exSeries++;
+                    Console.Beep();
                 }
                 else if (exNumber == EXERCISES_NUMBER && exSeries == SERIES_NUMBER)
                 {
@@ -124,23 +128,25 @@ namespace Workout.Spartakus
             }
             else if (trainingStage == BREAK_STAGE) // training short break
             {
-                if (currTimeValue > 0) currTimeValue--;
+                if (currTimeValue > 1) currTimeValue--;
                 else
                 {
                     currTimeValue = exTime;
                     trainingStage = EXERCISE_STAGE;
                     setExerciseWindow();
+                    Console.Beep();
                 }
             }
             else if (trainingStage == LONG_BREAK_STAGE) //training long break
             {
-                if (currTimeValue > 0) currTimeValue--;
+                if (currTimeValue > 1) currTimeValue--;
                 else
                 {
                     currTimeValue = exTime;
                     trainingStage = EXERCISE_STAGE;
                     setExerciseWindow();
                     setSeriesLabel();
+                    Console.Beep();
                 }
             }
             else //training finished
@@ -303,9 +309,5 @@ namespace Workout.Spartakus
             return new BitmapImage(imageUri);
         }
 
-        public bool buttonIsEnabled(Button button)
-        {
-            return button.IsEnabled;
-        }
     }
 }

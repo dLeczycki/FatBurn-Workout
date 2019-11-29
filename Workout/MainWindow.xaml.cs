@@ -179,18 +179,24 @@ namespace Workout
                         break;
                     case SPARTAKUS_MAIN_PAGE:
                         currentPage = new SpartakusMainPage(this);
-                        pTTS.SpeakAsync("Wybrałeś Spartakusa");
-                        pTTS.SpeakAsync("Twój trening składa się z dziesięciu ćwiczeń w trzech seriach");
-                        pTTS.SpeakAsync("Każde z ćwiczeń będziesz wykonywać w określonym czasie");
-                        pTTS.SpeakAsync("Pomiędzy kazdym ćwiczeniem następuje krótka przerwa - przerwa pomiędzy ćwiczeniami");
-                        pTTS.SpeakAsync("Po wykonaniu dziesięciu ćwiczeń następuje długa przerwa - przerwa pomiędzy seriami");
-                        pTTS.SpeakAsync("Przejdź dalej");
+                        speechText("Wybrałeś Spartakusa");
+                        speechText("Twój trening składa się z dziesięciu ćwiczeń w trzech seriach");
+                        speechText("Każde z ćwiczeń będziesz wykonywać w określonym czasie");
+                        speechText("Pomiędzy kazdym ćwiczeniem następuje krótka przerwa - przerwa pomiędzy ćwiczeniami");
+                        speechText("Po wykonaniu dziesięciu ćwiczeń następuje długa przerwa - przerwa pomiędzy seriami");
+                        speechText("Przejdź dalej");
                         break;
                     case SPARTAKUS_EXPLANATION_PAGE:
                         currentPage = new SpartakusExplanationPage(this);
+                        speechText("Podczas ćwiczenia wyświetli się podobny ekran");
+                        speechText("Po lewej stronie znajduje się licznik, który pokazuje ile czasu ćwiczenia lub przerwy Ci zostało");
+                        speechText("Na dole znajdują się przyciski do sterowania licznikiem");
+                        speechText("Po prawej stronie znajdują się instrukcje do ćwiczenia. Od góry nazwa ćwiczenia, zdjęcia jak je wykonywać oraz etap treningu");
+                        speechText("Przejdź dalej");
                         break;
                     case SPARTAKUS_SETTINGS_PAGE:
                         currentPage = new SpartakusSettingsPage(this);
+                        speechText("Ustaw parametry treningu. Po ich ustawieniu rozpocznij trening");
                         break;
                     case SPARTAKUS_WORKOUT_PAGE:
                         currentPage = new SpartakusWorkoutPage(this, exTime, brTime, lngBrTime);
@@ -221,12 +227,22 @@ namespace Workout
 
                     case PUSHUPS_MAIN_PAGE:
                         currentPage = new PushupsMainPage(this);
+                        speechText("Wybrałeś trening 100 pompek");
+                        speechText("Na Twój trening składa się kilka serii wyznaczonej liczby pompek");
+                        speechText("Najpierw zrób test, który pozwoli dostosować do Ciebie właściwy cykl treningowy");
+                        speechText("Wykonujesz trening zgodnie z zaleceniami danego cyklu");
+                        speechText("Pamiętaj! Pomiędzy dniami treningu rób jeden dzień przerwy, po trzech dniach conajmniej dwa dni. Mięśni nie możesz przemęczać");
+                        speechText("Przejdź dalej");
                         break;
                     case PUSHUPS_EXPLANATION_PAGE:
                         currentPage = new PushupsExplanationPage(this);
+                        speechText("Podczas ćwiczenia wyświetli się podobny ekran");
+                        speechText("Od góry wyświetli Ci się seria, liczba pompek do zrobienia w serii oraz przycisk do przejścia do kolejnej serii");
+                        speechText("Przejdź dalej");
                         break;
                     case PUSHUPS_SETTINGS_PAGE:
                         currentPage = new PushupsSettingsPage(this);
+                        speechText("Ustaw parametry treningu. Po ich ustawieniu rozpocznij trening");
                         break;
                     case PUSHUPS_WORKOUT_PAGE:
                         currentPage = new PushupsWorkoutPage(this, trainingDay, testResult);
@@ -260,7 +276,7 @@ namespace Workout
                 pSRE.SetInputToDefaultAudioDevice();
                 pSRE.SpeechRecognized += PSRE_SpeechRecognizedPL;
 
-                pTTS.SpeakAsync("Witaj w swoim doradcy treningu");
+                speechText("Witaj w swoim doradcy treningu");
 
                 //Build Grammars
                 //Main grammars
@@ -343,12 +359,13 @@ namespace Workout
                 if (txt.IndexOf("Wyłącz syntezator") >= 0)
                 {
                     pTTS.SpeakAsyncCancelAll();
-                    pTTS.SpeakAsync("Wyłączyłeś syntezator");
+                    speechText("Wyłączyłeś syntezator");
+                    speechOn = false;
                     speechWait = false;
                 }
                 else if (txt.IndexOf("Pomoc") >= 0)
                 {
-                    pTTS.SpeakAsync("Treść pomocy");
+                    speechText("Treść pomocy");
                 }
                 else if (txt.IndexOf("Ustawienia") >= 0) { }
                 else if (txt.IndexOf("Sto pompek") >= 0 || txt.IndexOf("Pompki") >= 0) setWindow(PUSHUPS_MAIN_PAGE);
@@ -391,7 +408,7 @@ namespace Workout
                             catch (Exception ex)
                             {
                                 pTTS.SpeakAsyncCancelAll();
-                                pTTS.SpeakAsync("Polecenie jest nieprawidłowe");
+                                speechText("Polecenie jest nieprawidłowe");
                                 Message_WrongWeiderParameters();
                             }
                         }
@@ -423,7 +440,7 @@ namespace Workout
                             catch (Exception ex)
                             {
                                 pTTS.SpeakAsyncCancelAll();
-                                pTTS.SpeakAsync("Wykonano wszystkie serie");
+                                speechText("Wykonano wszystkie serie");
                             }
                         }
                         else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0) invokePageButtonMethod(pushupsWorkoutPage.backButton);
@@ -433,7 +450,7 @@ namespace Workout
             }
             else
             {
-                pTTS.SpeakAsync("Proszę powtórzyć");
+                speechText("Proszę powtórzyć");
                 return;
             }
         }
@@ -480,12 +497,20 @@ namespace Workout
         /// <param name="button"></param>
         private void invokePageButtonMethod(Button button)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() =>
+            try
             {
-                ButtonAutomationPeer peer = new ButtonAutomationPeer(button);
-                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                invokeProv.Invoke();
-            }));
+                Application.Current.Dispatcher.Invoke(new Action(() =>
+                {
+                    ButtonAutomationPeer peer = new ButtonAutomationPeer(button);
+                    IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                    invokeProv.Invoke();
+                }));
+            }
+            catch (Exception ex)
+            {
+                speechText("Komenda niedozwolona");
+            }
+
         }
 
         /// <summary>
@@ -510,6 +535,26 @@ namespace Workout
                     }));
                 }
             }
+        }
+
+        /// <summary>
+        /// Counts to three
+        /// </summary>
+        /// <param name="i">Nsumber</param>
+        public void speechCountThree(int i)
+        {
+            if (i == 3) speechText("Trzy");
+            else if (i == 2) speechText("Dwa");
+            else if (i == 1) speechText("Jeden");
+        }
+
+        /// <summary>
+        /// Speaks text
+        /// </summary>
+        /// <param name="txt">Text to speak</param>
+        public void speechText(string txt)
+        {
+            if (speechOn) pTTS.SpeakAsync(txt);
         }
 
         //-------------------------------------------------------------------------------//
