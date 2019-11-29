@@ -35,16 +35,8 @@ namespace Workout.Gym
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (!setGymParameters()) throw new Exception();
-
-                mainWindow.setWindow(MainWindow.GYM_WORKOUT_PAGE);
-            }
-            catch (Exception ex)
-            {
-                MainWindow.Message_WrongSpartakusParameters();
-            }
+            setGymParameters();
+            mainWindow.setWindow(MainWindow.GYM_WORKOUT_PAGE);      
         }
 
         /// <summary>
@@ -53,34 +45,14 @@ namespace Workout.Gym
         /// <returns></returns>
         private bool setGymParameters()
         {
-            int[] values = new int[3];
-            string[] parameters = new string[3];
-           // parameters[0] = textExTime.Text;
-           // parameters[1] = textBrTime.Text;
-           // parameters[2] = textLngBrTime.Text;
+            if (cbSchoulder.IsChecked == true) mainWindow.muscles.Add("schoulder");
+            if (cbAbs.IsChecked == true) mainWindow.muscles.Add("abs");
+            if (cbArm.IsChecked == true) mainWindow.muscles.Add("arm");
+            if (cbChest.IsChecked == true) mainWindow.muscles.Add("chest");
+            if (cbLeg.IsChecked == true) mainWindow.muscles.Add("leg");
+            if (cbBack.IsChecked == true) mainWindow.muscles.Add("back");
 
-            for (int i = 0; i < 3; i++)
-            {
-                try
-                {
-                    values[i] = Int32.Parse(parameters[i]);
-                    if (values[i] < 1) throw new Exception();
-                }
-                catch (Exception e)
-                {
-                    return false;
-                }
-            }
-
-            mainWindow.exTime = values[0];
-            mainWindow.brTime = values[1];
-            mainWindow.lngBrTime = values[2];
             return true;
-        }
-
-        private void CheckBox1_Checked(object sender, RoutedEventArgs e)
-        {
-           // CheckBox1.Content = "Checked";
         }
     }
 }

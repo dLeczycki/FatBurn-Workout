@@ -83,10 +83,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Gym\CustomizedCheckBox.xaml.cs">
-      <DependentUpon>CustomizedCheckBox.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Gym\GymMainPage.xaml.cs">
       <DependentUpon>GymMainPage.xaml</DependentUpon>
     </Compile>
@@ -132,10 +128,6 @@
     <Compile Include="Weider\WeiderWorkoutPage.xaml.cs">
       <DependentUpon>WeiderWorkoutPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Gym\CustomizedCheckBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Gym\GymMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,10 +137,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Gym\GymWorkoutPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Gym\MyCheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
