@@ -29,7 +29,7 @@ namespace Workout.Gym
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.setWindow(MainWindow.GYM_EXPLANATION_PAGE);
+            mainWindow.setWindow(MainWindow.GYM_SETTINGS_PAGE);
         }
     }
 }

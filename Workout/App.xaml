@@ -4,6 +4,50 @@
              xmlns:local="clr-namespace:Workout"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <SolidColorBrush x:Key="SelectedCheckboxColor" Color="#FF2094ff"/>
+        <SolidColorBrush x:Key="UnselectedCheckboxColor" />
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Border x:Name="border" BorderThickness="2" BorderBrush="{StaticResource ResourceKey=UnselectedCheckboxColor}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter Grid.Column="0" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                                <!-- Tickbox Mockup -->
+                                <Polygon x:Name="checkPoly" Points="0,0 24,24 24,0 0,0" Stroke="#FF2094ff" StrokeThickness="0" Width="24" Height="24" 
+                                         VerticalAlignment="Top" HorizontalAlignment="Right" Fill="{StaticResource ResourceKey=UnselectedCheckboxColor}" />
+                                <Path x:Name="path" Stroke="Transparent" Data="M 6,6 L 9, 9 L 16,2" StrokeThickness="2" Margin="0, 1, 1, 0"
+                                      VerticalAlignment="Top" HorizontalAlignment="Right" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasContent" Value="true">
+                                <Setter Property="Padding" Value="4,0,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Fill" TargetName="checkPoly" Value="{StaticResource ResourceKey=SelectedCheckboxColor}"/>
+                                <Setter  Property="BorderBrush" TargetName="border" Value="{StaticResource ResourceKey=SelectedCheckboxColor}" />
+                                <Setter  Property="Stroke" TargetName="path" Value="white" />
+                            </Trigger>
+                            <Trigger Property="IsMouseCaptureWithin" Value="True">
+                                <Setter Property="Fill" TargetName="checkPoly" Value="{StaticResource ResourceKey=SelectedCheckboxColor}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF2094ff"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>

@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Workout",
-    "\\Workout\\img"
+    "\\Workout\\Gym"
   ],
-  "SelectedNode": "\\Workout.sln",
+  "SelectedNode": "\\Workout\\Gym\\GymWorkoutPage.xaml",
   "PreviewInSolutionExplorer": false
 }

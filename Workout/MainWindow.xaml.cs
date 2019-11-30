@@ -46,7 +46,6 @@ namespace Workout
         public const int WEIDER_WORKOUT_PAGE = 24;
 
         public const int GYM_MAIN_PAGE = 31;
-        public const int GYM_EXPLANATION_PAGE = 32;
         public const int GYM_SETTINGS_PAGE = 33;
         public const int GYM_WORKOUT_PAGE = 34;
 
@@ -98,6 +97,9 @@ namespace Workout
         //Pushups parameters
         public int trainingDay;
         public int testResult;
+
+        //Gym parameters
+        public List<string> muscles = new List<string>();
 
         //Public local parameters
         public int currentPageNumber;
@@ -287,14 +289,11 @@ namespace Workout
                     case GYM_MAIN_PAGE:
                         currentPage = new GymMainPage(this);
                         break;
-                    case GYM_EXPLANATION_PAGE:
-                        currentPage = new GymExplanationPage(this);
-                        break;
                     case GYM_SETTINGS_PAGE:
                         currentPage = new GymSettingsPage(this);
                         break;
                     case GYM_WORKOUT_PAGE:
-                        currentPage = new GymWorkoutPage(this, exTime, brTime, lngBrTime);
+                        currentPage = new GymWorkoutPage(this, muscles);
                         break;
 
                     case PUSHUPS_MAIN_PAGE:
@@ -711,6 +710,15 @@ namespace Workout
         {
             string text = "Podano złe wartości. Należy wprowadzić liczby całkowite.";
             string caption = "Złe dane";
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBox.Show(text, caption, button, icon);
+        }
+
+        public static void Message_WrongGymParameters()
+        {
+            string text = "Nie wybrano Partii mięściowych, wybierz conajmniej jedną z podanych opcji";
+            string caption = "Brak wyboru";
             MessageBoxButton button = MessageBoxButton.OK;
             MessageBoxImage icon = MessageBoxImage.Warning;
             MessageBox.Show(text, caption, button, icon);

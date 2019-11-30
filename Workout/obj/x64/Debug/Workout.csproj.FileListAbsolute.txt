@@ -24,7 +24,6 @@ C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\Spartaku
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusExplanationPage.baml
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusSettingsPage.baml
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Spartakus\SpartakusWorkoutPage.baml
-E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Workout.csprojAssemblyReference.cache
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Spartakus\SpartakusWorkoutPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\StartPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\App.g.cs
@@ -57,11 +56,9 @@ E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Weider\WeiderSe
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Weider\WeiderWorkoutPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Weider\WeiderSettingsPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Weider\WeiderWorkoutPage.baml
-E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymExplanationPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymMainPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymSettingsPage.g.cs
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymWorkoutPage.g.cs
-E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymExplanationPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymMainPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymSettingsPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymWorkoutPage.baml
@@ -87,3 +84,13 @@ C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Pushups\PushupsSet
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Pushups\PushupsWorkoutPage.g.cs
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Pushups\PushupsSettingsPage.baml
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Pushups\PushupsWorkoutPage.baml
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsExplanationPage.g.cs
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsMainPage.g.cs
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsSettingsPage.g.cs
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsWorkoutPage.g.cs
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\App.baml
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsExplanationPage.baml
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsMainPage.baml
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsSettingsPage.baml
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsWorkoutPage.baml
+E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Workout.csprojAssemblyReference.cache

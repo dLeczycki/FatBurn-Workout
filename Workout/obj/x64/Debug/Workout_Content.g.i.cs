@@ -8,9 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/microphone-dark.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/microphone-light.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/speaker-dark.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icons/speaker-light.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/schoulder.png")]
 
 
