@@ -18,9 +18,9 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Border Grid.Column="0" Grid.Row="0">
-            
-            
-            
+
+
+
             <Label Content="SIŁOWNIA" FontSize="34px" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
         </Border>
         <Border Grid.Column="0" Grid.Row="1">
@@ -62,14 +62,14 @@
                         <CheckBox x:Name="cbArm" Grid.Row="1" Grid.Column="3" IsChecked="False">
                             <Image x:Name="imageArm"  Source="/img/arm.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </CheckBox>
-                        <CheckBox x:Name="cbChest" Grid.Row="3" Grid.Column="3" IsChecked="False"> 
+                        <CheckBox x:Name="cbChest" Grid.Row="3" Grid.Column="3" IsChecked="False">
                             <Image x:Name="imageChest" Source="/img/chest.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </CheckBox>
-                        <CheckBox x:Name="cbLeg" Grid.Row="1" Grid.Column="5" IsChecked="False"> 
-                             <Image x:Name="imageLeg"  Source="/img/leg.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="cbLeg" Grid.Row="1" Grid.Column="5" IsChecked="False">
+                            <Image x:Name="imageLeg"  Source="/img/leg.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </CheckBox>
                         <CheckBox x:Name="cbBack" Grid.Row="3" Grid.Column="5" IsChecked="False">
-                             <Image x:Name="imageBack" Source="/img/back.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Image x:Name="imageBack" Source="/img/back.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </CheckBox>
                     </Grid>
                 </Border>

@@ -20,11 +20,6 @@ using System.Data;
 
 namespace Workout.Gym
 {
-    class Muscles
-    {
-        Image image;
-        string description;
-    }
     /// <summary>
     /// Interaction logic for GymWorkoutPage.xaml
     /// </summary>
@@ -39,63 +34,49 @@ namespace Workout.Gym
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-            Image img = new Image();
-            theGrid.ShowGridLines = true;
-
-            // RowDefinition row = ;
-            //DataTable dt = new DataTable();
-
-            //  int number = muscles.Count;
-            //  string[] parties = new string[number];
+            string[] description = new string[6] { "ramiona", "brzuch", "plecy", "ręce", "klata", "nogi" };            
 
             for (int item = 0; item < muscles.Count; item++)
             {
-                Console.WriteLine(muscles[item]);
+                theGrid.RowDefinitions.Add(new RowDefinition());
+                Image img = new Image();
+                TextBlock desc = new TextBlock();
+                Border borderBG = new Border();
+
+             //   borderBG.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0x23, 0x28, 0x2C));
+             //   Grid.SetRow(borderBG, ((item + 1) % 2));
+
+
                 img.BeginInit();
                 img.Source = new BitmapImage(new Uri("/img/" + muscles[item] + ".png", UriKind.Relative));
                 img.EndInit();
 
-               // dt.Rows.Add(img);
-                Console.WriteLine(img);
-                theGrid.RowDefinitions.Add(new RowDefinition());
-                theGrid.
-                
-                img.SetValue(Grid.RowProperty, item);
-                img.SetValue(Grid.ColumnProperty, 0);
-                
+                if (muscles[item] == "schoulder") { desc.Text = description[0]; }
+                else if (muscles[item] == "abs") { desc.Text = description[1]; }
+                else if (muscles[item] == "back") { desc.Text = description[2]; }
+                else if (muscles[item] == "arm") { desc.Text = description[3]; }
+                else if (muscles[item] == "chest") { desc.Text = description[4]; }
+                else { desc.Text = description[5]; };
 
-               
-                
-                //theGrid.Children.Add(img);
-                //img.SetValue(Grid.RowProperty, item);
+                img.SetValue(Grid.RowProperty, muscles.Count - 1 - item);
+                img.SetValue(Grid.ColumnProperty, (item+1)%2);
 
-              //  sp.Children.Add(img);
-                //theGrid.Children.Insert(item,img);
-                
+                desc.SetValue(Grid.RowProperty, muscles.Count - 1 - item);
+                desc.SetValue(Grid.ColumnProperty, (item+2) % 2);
+
+                img.HorizontalAlignment = HorizontalAlignment.Center;
+                desc.VerticalAlignment = VerticalAlignment.Center;
+
+                TextBlock.SetFontSize(desc, 24);
+                TextBlock.SetForeground(desc, Brushes.White);
+                TextBlock.SetTextAlignment(desc, TextAlignment.Center);
+
+                theGrid.Children.Add(img);
+                theGrid.Children.Add(desc);
             }
-            //this.mainWindow = new MainWindow();
-           // theGrid.ItemsSource = dt.DefaultView;
 
-            foreach (var item in muscles)
-            {
-                if (item == "Ramiona") { }
-            }
-            //  if(exSchoulder == true) setExImage("/img/schoulder.png");
-            //  if(exAbs == true) setExImage("/img/abs.png");
-            //  if(exArm == true) setExImage("/img/arm.png");
-            //  if(exLeg == true) setExImage("/img/leg.png");
-            //  if(exChest == true) setExImage("/img/chest.png");
-            //  if(exBack == true) setExImage("/img/back.png");
-
-
-            resetTrainingParameters();
-            train();
         }
-        public void changeImage()
-        {
-   
-           
-        }
+
 
         /// <summary>
         /// Starts training
@@ -127,46 +108,10 @@ namespace Workout.Gym
             setSeriesLabel();
         }
 
-        /// <summary>
-        /// Sets exercise window with break label and photo
-        /// </summary>
-        /// <param name="isShort"></param>
-        private void setExerciseWindowToBreak(bool isShort)
-        {
-            //Exercise name label
-            //labelExName.Content = "";
 
-            //Exercise Image
-           // if (isShort) setExImage("/img/break.png");
-            //else setExImage("/img/longBreak.png");
-        }
 
-        /// <summary>
-        /// Sets exercise window with finished photo
-        /// </summary>
-        private void setExerciseWindowToFinish()
-        {
-            //labelExName.Content = "";
-            //setExImage("/img/trainingFinished.png");
-            //labelEx.Content = "";
-            //labelSeries.Content = "";
-            //labelCounter.Content = "BRAWO!";
-        }
 
-        /// <summary>
-        /// Sets image of exercise with image of declared path
-        /// </summary>
-        /// <param name="imgPath"></param>
-        private void setExImage(string imgPath)
-        {
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.UriSource = new Uri(imgPath, UriKind.Relative);
-            image.EndInit();
 
-            //myImage1.Source = image;
-
-        }
 
         /// <summary>
         /// Sets series label beneath exercise label
@@ -183,12 +128,10 @@ namespace Workout.Gym
         /// <param name="e"></param>
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-
-            mainWindow.setWindow(MainWindow.GYM_SETTINGS_PAGE);
-            // theGrid.RowDefinitions.Clear();
-            theGrid.ShowGridLines = false;
-            theGrid.RowDefinitions.RemoveRange(0, theGrid.RowDefinitions.Count-1);
-            
+            theGrid.Children.Clear();
+            theGrid.RowDefinitions.Clear();
+ 
+            mainWindow.setWindow(MainWindow.GYM_SETTINGS_PAGE);          
         }
 
         /// <summary>
@@ -206,43 +149,6 @@ namespace Workout.Gym
           //  playImage.Source = imageSourceOfString("/icons/play.png");
         }
 
-        /// <summary>
-        /// Pauses training
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pauseButton_Click(object sender, RoutedEventArgs e)
-        {
-            dt.Stop();
-          //  pauseButton.IsEnabled = false;
-          //  pauseImage.Source = imageSourceOfString("/icons/pause-dark.png");
-          //  playButton.IsEnabled = true;
-          //  playImage.Source = imageSourceOfString("/icons/play.png");
-        }
 
-        /// <summary>
-        /// Plays training after pause
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void playButton_Click(object sender, RoutedEventArgs e)
-        {
-            dt.Start();
-          //  pauseButton.IsEnabled = true;
-          //  pauseImage.Source = imageSourceOfString("/icons/pause.png");
-          //  playButton.IsEnabled = false;
-          //  playImage.Source = imageSourceOfString("/icons/play-dark.png");
-        }
-
-        /// <summary>
-        /// Changes string path to image source
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        private ImageSource imageSourceOfString(string path)
-        {
-            Uri imageUri = new Uri(path, UriKind.Relative);
-            return new BitmapImage(imageUri);
-        }
     }
 }

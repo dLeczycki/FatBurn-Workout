@@ -23,7 +23,10 @@
         </Border>
         <Border Grid.Column="0" Grid.Row="2">
             <Grid x:Name="theGrid" Background="Transparent">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
                 <!--
                 <Border Grid.Column="0" Grid.Row="0"></Border>
                 <Border Grid.Column="0" Grid.Row="1">

@@ -35,8 +35,15 @@ namespace Workout.Gym
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            setGymParameters();
-            mainWindow.setWindow(MainWindow.GYM_WORKOUT_PAGE);      
+            try
+            {
+                if (!setGymParameters()) throw new Exception();
+                mainWindow.setWindow(MainWindow.GYM_WORKOUT_PAGE);
+            }
+            catch (Exception ex)
+            {
+                MainWindow.Message_WrongGymParameters();
+            }
         }
 
         /// <summary>
@@ -45,12 +52,15 @@ namespace Workout.Gym
         /// <returns></returns>
         private bool setGymParameters()
         {
+            mainWindow.muscles.Clear();
+
             if (cbSchoulder.IsChecked == true) mainWindow.muscles.Add("schoulder");
             if (cbAbs.IsChecked == true) mainWindow.muscles.Add("abs");
             if (cbArm.IsChecked == true) mainWindow.muscles.Add("arm");
             if (cbChest.IsChecked == true) mainWindow.muscles.Add("chest");
             if (cbLeg.IsChecked == true) mainWindow.muscles.Add("leg");
             if (cbBack.IsChecked == true) mainWindow.muscles.Add("back");
+            
 
             return true;
         }
