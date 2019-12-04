@@ -75,9 +75,21 @@ namespace Workout
         public readonly string[] NUMBERS = new string[] { "jeden", "dwa", "trzy", "cztery", "pięć", "sześć", "siedem", "osiem", "dziewięć", "dziesięć", "dwie" };
         public readonly string[] NUMBERS_ORDERED = new string[] { "pierwszy", "drugi", "trzeci", "czwarty", "piąty", "szósty", "siódmy", "ósmy", "dziewiąty", "dziesiąty" };
         public readonly string[] TEENS = new string[] { "jedenaście", "dwanaście", "trzynaście", "czternaście", "piętnaście", "szesnaście", "siedemnaście", "osiemnaście", "dziewiętnaście" };
+        public readonly string[] TEENS_ORDERED = new string[] { "jedenasty", "dwunasty", "trzynasty", "czternasty", "piętnasty", "szesnasty", "siedemnasty", "osiemnasty", "dziewiętnasty" };
         public readonly string[] DOZENS = new string[] { "dwadzieścia", "trzydzieści", "czterdzieści", "pięćdziesiąt", "sześćdziesiąt", "siedemdziesiąt", "osiemdziesiąt", "dziewięćdziesiąt" };
+        public readonly string[] DOZENS_ORDERED = new string[] { "dwudziesty", "trzydziesty", "czterdziesty", "pięćdziesiąty", "sześćdziesiąty", "siedemdziesiąty", "osiemdziesiąty", "dziewięćdziesiąty" };
         public readonly string[] HUNDREDS = new string[] { "sto", "dwieście", "trzysta", "czterysta", "pięćset", "sześćset", "siedemset", "osiemset", "dziewięćset" };
         public readonly string[] SECONDS = new string[] { "sekund", "sekundy" };
+
+        //Arrays for Gym commands
+        public readonly string[] GYM_FIRST_SETTING = new string[] { "Wybierz ", "Ćwicz ", "Ustaw ", "Odznacz ", "Usuń "};
+        public readonly string[] GYM_MUSCLE_PART = new string[] { "plecy", "ramiona", "ręce", "klatę", "brzuch", "nogi" };
+
+        //Arrays for Weider commands
+        public readonly string[] WEIDER_FIRST_SETTING = new string[] { "Ustaw pierwszy czas na ", "Ustaw czas na jedno ćwiczenie na ", "Ustaw czas na ćwiczenie na", "ćwiczenie", };
+        public readonly string[] WEIDER_SECOND_SETTING = new string[] { "Ustaw drugi czas na ", "Ustaw czas na krótką przerwę na", "krótka przerwa" };
+        public readonly string[] WEIDER_THIRD_SETTING = new string[] { "Ustaw trzeci czas na ", "Ustaw czas na długą przerwę na", "długa przerwa" };
+        public readonly string[] WEIDER_DAY_SETTING = new string[] { "Ustaw dzień na ", "dzień treningu ", "Ustaw dzień treningu na ", "Ustaw etap na "};
 
         ///Microsoft Speech parameters
         public SpeechRecognitionEngine pSRE;
@@ -176,6 +188,7 @@ namespace Workout
                     };
                     Message_OperationsAllowed(startPageOperations);
                     break;
+
                 case SPARTAKUS_MAIN_PAGE:
                     Message_OperationsAllowed(nextFlowArray);
                     break;
@@ -186,8 +199,8 @@ namespace Workout
                     string[] spartakusSettingOperations = new string[] {
                         "Rozpocznij trening - rozpoczyna trening o zadanych parametrach", "Wstecz/Wróć - powrót do poprzedniej strony",
                         "Ustaw pierwszy czas na / Ustaw czas na jedno ćwiczenie na / Ustaw czas na ćwiczenie na / ćwiczenie XX sekund - ustawia pierwszy czas na wybraną liczbę sekund",
-                        "Ustaw drugi czas na / Ustaw czas na krótką przerwę na / krótka przerwa XX sekund - ustawia pierwszy czas na wybraną liczbę sekund",
-                        "Ustaw trzeci czas na / Ustaw czas na długą przerwę na / długa przerwa XX sekund - ustawia pierwszy czas na wybraną liczbę sekund"
+                        "Ustaw drugi czas na / Ustaw czas na krótką przerwę na / krótka przerwa XX sekund - ustawia drugi czas na wybraną liczbę sekund",
+                        "Ustaw trzeci czas na / Ustaw czas na długą przerwę na / długa przerwa XX sekund - ustawia trzeci czas na wybraną liczbę sekund"
                     };
                     Message_OperationsAllowed(spartakusSettingOperations);
                     break;
@@ -198,6 +211,7 @@ namespace Workout
                         "Wznów / Start - Wznawia odliczanie licznika"};
                     Message_OperationsAllowed(spartakusWorkoutOperations);
                     break;
+
                 case PUSHUPS_MAIN_PAGE:
                     Message_OperationsAllowed(nextFlowArray);
                     break;
@@ -217,9 +231,55 @@ namespace Workout
                 case PUSHUPS_WORKOUT_PAGE:
                     string[] pushupsWorkoutOperations = new string[] {
                         "Wstecz/Wróć - powrót do poprzedniej strony",
-                         "Zrobione / Zrobiłem / Zrobiłam - ustawia kolejną serię pompek"
+                        "Zrobione / Zrobiłem / Zrobiłam - ustawia kolejną serię pompek"
                     };
                     Message_OperationsAllowed(pushupsWorkoutOperations);
+                    break;
+
+                case GYM_MAIN_PAGE:
+                    Message_OperationsAllowed(nextFlowArray);
+                    break;
+                case GYM_SETTINGS_PAGE:
+                    string[] gymSettingOperations = new string[]
+                    {
+                        "Wstecz/Wróć - powrót do poprzedniej strony",
+                        "Wybierz partie mięśniowe, które chcesz zaangażować podczas treningu",
+                        "Rozpocznij trening - rozpoczyna trening wybranych partii mięśniowych"
+                    };
+                    Message_OperationsAllowed(gymSettingOperations);
+                    break;
+                case GYM_WORKOUT_PAGE:
+                    string[] gymWorkoutOperations = new string[]
+                    {
+                        "Wstecz/Wróć - powrót do poprzedniej strony",
+                        "Zrobione / Zrobiłem / Zrobiłam - przechodzi do kolejnej serii ćwiczeń lub po jej wykonaniu, do kolejnej partii mięśniowej"
+                    };
+                    Message_OperationsAllowed(gymWorkoutOperations);
+                    break;
+
+                case WEIDER_MAIN_PAGE:
+                    Message_OperationsAllowed(nextFlowArray);
+                    break;
+                case WEIDER_SETTINGS_PAGE:
+                    string[] weiderSettingOperations = new string[]
+                    {
+                        "Wstecz/Wróć - powrót do poprzedniej strony",
+                        "Ustaw pierwszy czas na / Ustaw czas na jedno ćwiczenie na / Ustaw czas na ćwiczenie na / ćwiczenie XX sekund - ustawia pierwszy czas na wybraną liczbę sekund",
+                        "Ustaw drugi czas na / Ustaw czas na krótką przerwę na / krótka przerwa XX sekund - ustawia drugi czas na wybraną liczbę sekund",
+                        "Ustaw trzeci czas na / Ustaw czas na długą przerwę na / długa przerwa XX sekund - ustawia trzeci czas na wybraną liczbę sekund",
+                        "Ustaw dzień treningu na / dzień treningu XX dzień",
+                        "Rozpocznij trening - rozpoczyna trening"
+                    };
+                    Message_OperationsAllowed(weiderSettingOperations);
+                    break;
+                case WEIDER_WORKOUT_PAGE:
+                    string[] weiderWorkoutOperations = new string[]
+                    {
+                        "Przerwij trening - przerywa trening, trening jest łądowany od początku",
+                        "Stop / Pauza - Zatrzymuje licznik czasu",
+                        "Wznów / Start - Wznawia odliczanie licznika"
+                    };
+                    Message_OperationsAllowed(weiderWorkoutOperations);
                     break;
             }
         }
@@ -278,9 +338,15 @@ namespace Workout
 
                     case WEIDER_MAIN_PAGE:
                         currentPage = new WeiderMainPage(this);
+                        speechText("Wybrałeś trening szóstka łejdera");
+                        speechText("Twój trening składa się z sześciu ćwiczeń");
+                        speechText("Liczba serii zależy od dotychczasowego etapu wykonania treningu");
+                        speechText("Pomiędzy każdym ćwiczeniem następuje krótka przerwa - przerwa pomiędzy ćwiczeniami, natomiast po wykonaniu sześciu ćwiczeń następuje długa przerwa - przerwa pomiędzy seriami");
+                        speechText("Przejdź dalej");
                         break;
                     case WEIDER_SETTINGS_PAGE:
                         currentPage = new WeiderSettingsPage(this);
+                        speechText("Ustaw parametry treningu. Po ich ustawieniu rozpocznij trening");
                         break;
                     case WEIDER_WORKOUT_PAGE:
                         currentPage = new WeiderWorkoutPage(this, exTime, brTime, lngBrTime, progress);
@@ -288,9 +354,14 @@ namespace Workout
 
                     case GYM_MAIN_PAGE:
                         currentPage = new GymMainPage(this);
+                        speechText("Wybrałeś trening na siłowni");
+                        speechText("Twój trening jest uzależniony od wybranych pratii mięśniowych");
+                        speechText("Pamiętaj, że pomiędzy dniami treningu należy zrobić jeden dzień przerwy");
+                        speechText("Przejdź dalej");
                         break;
                     case GYM_SETTINGS_PAGE:
                         currentPage = new GymSettingsPage(this);
+                        speechText("Wybierz partie mięśniowe, które ccesz zaangażować podczas treningu. Po ich ustawieniu rozpocznij trening");
                         break;
                     case GYM_WORKOUT_PAGE:
                         currentPage = new GymWorkoutPage(this, muscles);
@@ -394,6 +465,31 @@ namespace Workout
 
                 buildGrammar(PUSHUPS_TRAINING_DAY_SETTING, NUMBERS_ORDERED, DAYS);
 
+
+                //Weider setting grammars
+                string[] weiderSetting = new string[WEIDER_FIRST_SETTING.Length + WEIDER_SECOND_SETTING.Length + WEIDER_THIRD_SETTING.Length + WEIDER_DAY_SETTING.Length];
+                WEIDER_FIRST_SETTING.CopyTo(weiderSetting, 0);
+                WEIDER_SECOND_SETTING.CopyTo(weiderSetting, WEIDER_FIRST_SETTING.Length);
+                WEIDER_THIRD_SETTING.CopyTo(weiderSetting, WEIDER_FIRST_SETTING.Length + WEIDER_SECOND_SETTING.Length);
+                WEIDER_DAY_SETTING.CopyTo(weiderSetting, WEIDER_FIRST_SETTING.Length + WEIDER_SECOND_SETTING.Length + WEIDER_THIRD_SETTING.Length);
+
+                buildGrammar(weiderSetting, NUMBERS, SECONDS);
+                buildGrammar(weiderSetting, TEENS, SECONDS);
+
+                buildGrammar(weiderSetting, DOZENS, NUMBERS, SECONDS);
+                buildGrammar(weiderSetting, HUNDREDS, NUMBERS, SECONDS);
+                buildGrammar(weiderSetting, HUNDREDS, TEENS, SECONDS);
+                buildGrammar(weiderSetting, HUNDREDS, DOZENS, SECONDS);
+
+                buildGrammar(weiderSetting, HUNDREDS, DOZENS, NUMBERS, SECONDS);
+
+                buildGrammar(weiderSetting, NUMBERS_ORDERED, DAYS);
+                buildGrammar(weiderSetting, TEENS_ORDERED, DAYS);
+                buildGrammar(weiderSetting, DOZENS_ORDERED, NUMBERS_ORDERED, DAYS);
+
+                //Gym setting grammars
+                buildGrammar(GYM_FIRST_SETTING, GYM_MUSCLE_PART);
+
                 // Ustaw rozpoznawanie przy wykorzystaniu wielu gramatyk:
                 pSRE.RecognizeAsync(RecognizeMode.Multiple);
 
@@ -453,6 +549,7 @@ namespace Workout
                 //Actions activated with voice on selected page
                 switch (currentPageNumber)
                 {
+
                     case SPARTAKUS_MAIN_PAGE:
                         SpartakusMainPage spartakusMainPage = (SpartakusMainPage)currentPage;
                         if (txt.IndexOf("Dalej") >= 0 || txt.IndexOf("Następna") >= 0) invokePageButtonMethod(spartakusMainPage.nextButton);
@@ -489,6 +586,8 @@ namespace Workout
                             }
                         }
                         break;
+
+
                     case PUSHUPS_MAIN_PAGE:
                         PushupsMainPage pushupsMainPage = (PushupsMainPage)currentPage;
                         if (txt.IndexOf("Dalej") >= 0 || txt.IndexOf("Następna") >= 0) invokePageButtonMethod(pushupsMainPage.nextButton);
@@ -521,6 +620,74 @@ namespace Workout
                         }
                         else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0) invokePageButtonMethod(pushupsWorkoutPage.backButton);
                         break;
+
+
+
+                    case WEIDER_MAIN_PAGE:
+                        WeiderMainPage weiderMainPage = (WeiderMainPage)currentPage;
+                        if (txt.IndexOf("Dalej") >= 0 || txt.IndexOf("Następna") >= 0) invokePageButtonMethod(weiderMainPage.nextButton);
+                        break;
+                    case WEIDER_SETTINGS_PAGE:
+                        WeiderSettingsPage weiderSettingsPage = (WeiderSettingsPage)currentPage;
+                        setNumberTextBox(weiderSettingsPage.setWeiderFirstTime, WEIDER_FIRST_SETTING, txt);
+                        setNumberTextBox(weiderSettingsPage.setWeiderSecondTime, WEIDER_SECOND_SETTING, txt);
+                        setNumberTextBox(weiderSettingsPage.setWeiderThirdTime, WEIDER_THIRD_SETTING, txt);
+                        setNumberTextBox(weiderSettingsPage.setWeiderDayProgress, WEIDER_DAY_SETTING, txt);
+                        if (txt.IndexOf("Rozpocznij trening") >= 0) invokePageButtonMethod(weiderSettingsPage.nextButton);
+                        else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0) invokePageButtonMethod(weiderSettingsPage.backButton);
+                        break;
+                    case WEIDER_WORKOUT_PAGE:
+                        WeiderWorkoutPage weiderWorkoutPage = (WeiderWorkoutPage)currentPage;
+                        if (txt.IndexOf("Przerwij trening") >= 0) invokePageButtonMethod(weiderWorkoutPage.nextButton);
+                        else if (txt.IndexOf("Pauza") >= 0 || txt.IndexOf("Stop") >= 0) invokePageButtonMethod(weiderWorkoutPage.pauseButton);
+                        else if (txt.IndexOf("Wznów") >= 0 || txt.IndexOf("Start") >= 0) invokePageButtonMethod(weiderWorkoutPage.playButton);
+                        else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0)
+                        {
+                            try
+                            {
+                                invokePageButtonMethod(weiderWorkoutPage.backButton);
+                            }
+                            catch (Exception ex)
+                            {
+                                pTTS.SpeakAsyncCancelAll();
+                                speechText("Polecenie jest nieprawidłowe");
+                                Message_WrongWeiderParameters();
+                            }
+                        }
+                        break;
+
+
+                    case GYM_MAIN_PAGE:
+                        GymMainPage gymMainPage = (GymMainPage)currentPage;
+                        if (txt.IndexOf("Dalej") >= 0 || txt.IndexOf("Następna") >= 0) invokePageButtonMethod(gymMainPage.nextButton);
+                        break;
+                    case GYM_SETTINGS_PAGE:
+                        GymSettingsPage gymSettingsPage = (GymSettingsPage)currentPage;
+
+                     //   Message_WrongGymParameters()
+
+                        setCheckBox(gymSettingsPage.setCheckButtonValue, GYM_FIRST_SETTING, txt);
+                        if (txt.IndexOf("Rozpocznij trening") >= 0) invokePageButtonMethod(gymSettingsPage.nextButton);
+                        else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0) invokePageButtonMethod(gymSettingsPage.backButton);
+                        break;
+
+
+                    case GYM_WORKOUT_PAGE:
+                        GymWorkoutPage gymWorkoutPage = (GymWorkoutPage)currentPage;
+                        if (txt.IndexOf("Zrobione") >= 0 || txt.IndexOf("Zrobiłem") >= 0 || txt.IndexOf("Zrobiłam") >= 0 || txt.IndexOf("Dalej") >= 0)
+                        {
+                            try
+                            {
+                                invokePageButtonMethod(gymWorkoutPage.backButton);
+                            }
+                            catch (Exception ex)
+                            {
+                                pTTS.SpeakAsyncCancelAll();
+                                speechText("Wykonano wszystkie serie");
+                            }
+                        }
+                        else if (txt.IndexOf("Wstecz") >= 0 || txt.IndexOf("Wróć") >= 0) invokePageButtonMethod(gymWorkoutPage.backButton);
+                        break;
                 }
 
             }
@@ -551,14 +718,31 @@ namespace Workout
                 {
                     if (word.Equals(NUMBERS_ORDERED[i])) result += (i + 1);
                 }
+
+
                 for (int i = 0; i < TEENS.Length; i++)
                 {
                     if (word.Equals(TEENS[i])) result += (i + 11);
                 }
+                //Tutaj coś nie gra
+               // if (word.Equals(TEENS[20])) result += 1;
+                for (int i = 0; i < TEENS_ORDERED.Length; i++)
+                {
+                    if (word.Equals(TEENS_ORDERED[i])) result += (i + 11);
+                }
+
+
                 for (int i = 0; i < DOZENS.Length; i++)
                 {
                     if (word.Equals(DOZENS[i])) result += ((i + 2) * 10);
                 }
+                //tutaj też
+                //if (word.Equals(DOZENS[10])) result += 2;
+                for (int i = 0; i < DOZENS_ORDERED.Length; i++)
+                {
+                    if (word.Equals(DOZENS_ORDERED[i])) result += ((i + 2) * 10);
+                }
+
                 for (int i = 0; i < HUNDREDS.Length; i++)
                 {
                     if (word.Equals(HUNDREDS[i])) result += ((i + 1) * 100);
@@ -590,6 +774,36 @@ namespace Workout
                 speechText("Komenda niedozwolona");
             }
         }
+
+
+        /// <summary>
+        /// Sets Page CheckBox which should contain appropriate bool
+        /// </summary>
+        /// <param name="pageSetCheckBoxMethod">Page method which sets checkbox</param>
+        /// <param name="grammarPrefixes">Array of strings which stand before number part of command</param>
+        /// <param name="recognizedSpeech">Text of recognized speech</param>
+        private void setCheckBox(Action<string, bool> pageSetCheckBoxMethod, string[] grammarPrefixes, string recognizedSpeech)
+        {
+
+            foreach (string commandStart in grammarPrefixes)
+            {
+                bool result = true;
+                if (commandStart.StartsWith("Wybierz") || commandStart.StartsWith("Ustaw") || commandStart.StartsWith("Ćwicz")) result = true;
+                else if (commandStart.StartsWith("Usuń") || commandStart.StartsWith("Odznacz")) result = false;
+
+                if (recognizedSpeech.StartsWith(commandStart))
+                {
+                    
+                    string musclePart = recognizedSpeech.Substring(commandStart.Length);  
+
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        pageSetCheckBoxMethod(musclePart, result);
+                    }));
+                }
+            }
+        }
+
 
         /// <summary>
         /// Sets Page TextBox which should contain numbers
@@ -706,6 +920,9 @@ namespace Workout
             MessageBox.Show(text, caption, button, icon);
         }
 
+        /// <summary>
+        /// MessageBox displayed when Weider paramaeters are wrong
+        /// </summary>
         public static void Message_WrongWeiderParameters()
         {
             string text = "Podano złe wartości. Należy wprowadzić liczby całkowite.";
@@ -715,6 +932,9 @@ namespace Workout
             MessageBox.Show(text, caption, button, icon);
         }
 
+        /// <summary>
+        /// MessageBox displayed when none of Gym paramaeters is unchecked
+        /// </summary>
         public static void Message_WrongGymParameters()
         {
             string text = "Nie wybrano Partii mięściowych, wybierz conajmniej jedną z podanych opcji";

@@ -60,9 +60,20 @@ namespace Workout.Gym
             if (cbChest.IsChecked == true) mainWindow.muscles.Add("chest");
             if (cbLeg.IsChecked == true) mainWindow.muscles.Add("leg");
             if (cbBack.IsChecked == true) mainWindow.muscles.Add("back");
-            
 
             return true;
         }
+
+
+        public void setCheckButtonValue(string musclePart, bool result)
+        {
+            if (musclePart == "abs" || musclePart == "brzuch") cbAbs.IsChecked = result;
+            if (musclePart == "ramiona" || musclePart == "biceps" || musclePart == "triceps") cbArm.IsChecked = result;
+            if (musclePart == "barki") cbSchoulder.IsChecked = result;
+            if (musclePart == "nogi") cbLeg.IsChecked = result;
+            if (musclePart == "plecy") cbBack.IsChecked = result;
+            if (musclePart == "klatę" || musclePart == "klatkę") cbChest.IsChecked = result;
+        }
+
     }
 }

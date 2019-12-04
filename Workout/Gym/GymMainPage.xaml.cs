@@ -27,7 +27,7 @@ namespace Workout.Gym
             this.mainWindow = mainWindow;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void nextButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.setWindow(MainWindow.GYM_SETTINGS_PAGE);
         }

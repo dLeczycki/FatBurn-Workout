@@ -33,25 +33,25 @@
                     <RowDefinition Height="2*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Border Grid.Column="0" Grid.Row="0">
-                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Twój trening składa się z 10 ćwiczeń w 3 seriach</Label>
+                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Dobierz trening wedle własnych potrzeb</Label>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="1">
                     <Image Source="/icons/cardiogram-light.png"></Image>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="2">
-                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Każde z ćwiczeń będziesz wykonywać w określonym czasie</Label>
+                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Wybierz partie mięśniowe, które chcesz zaangażować w treningu</Label>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="3">
                     <Image Source="/icons/cardiogram-light.png"></Image>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="4">
-                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Pomiędzy każdym ćwiczeniem następuje krótka przerwa - przerwa pomiędzy ćwiczeniami</Label>
+                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Dla każdej z wybranych partii mięśniowych został przygotowany odpowiedni trening</Label>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="5">
                     <Image Source="/icons/cardiogram-light.png"></Image>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="6">
-                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Po wykonaniu 10 ćwiczeń następuje długa przerwa - przerwa pomiędzy seriami</Label>
+                    <Label FontSize="20px" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Sam decydujesz p przerwach między ćwiczeniami</Label>
                 </Border>
             </Grid>
         </Border>
@@ -72,7 +72,7 @@
 
                 </Border>
                 <Border Grid.Column="3" Grid.Row="0">
-                    <Button Background="{x:Null}" BorderBrush="#FF2094FF" Foreground="White" HorizontalContentAlignment="Center" FontSize="24" Content="Dalej" Click="Button_Click"/>
+                    <Button x:Name="nextButton" Background="{x:Null}" BorderBrush="#FF2094FF" Foreground="White" HorizontalContentAlignment="Center" FontSize="24" Content="Dalej" Click="nextButton_Click"/>
                 </Border>
             </Grid>
         </Border>
