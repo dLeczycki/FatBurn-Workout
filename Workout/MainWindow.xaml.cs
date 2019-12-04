@@ -724,8 +724,6 @@ namespace Workout
                 {
                     if (word.Equals(TEENS[i])) result += (i + 11);
                 }
-                //Tutaj coś nie gra
-               // if (word.Equals(TEENS[20])) result += 1;
                 for (int i = 0; i < TEENS_ORDERED.Length; i++)
                 {
                     if (word.Equals(TEENS_ORDERED[i])) result += (i + 11);
@@ -736,8 +734,6 @@ namespace Workout
                 {
                     if (word.Equals(DOZENS[i])) result += ((i + 2) * 10);
                 }
-                //tutaj też
-                //if (word.Equals(DOZENS[10])) result += 2;
                 for (int i = 0; i < DOZENS_ORDERED.Length; i++)
                 {
                     if (word.Equals(DOZENS_ORDERED[i])) result += ((i + 2) * 10);
