@@ -22,6 +22,7 @@
             <Image Source="/icons/bar-light.png"/>
         </Border>
         <Border Grid.Column="0" Grid.Row="2">
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
             <Grid x:Name="theGrid" Background="Transparent">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -38,6 +39,7 @@
                 </Border>-->
 
             </Grid>
+            </ScrollViewer>
         </Border>
         <Border Grid.Column="0" Grid.Row="3">
             <Grid>

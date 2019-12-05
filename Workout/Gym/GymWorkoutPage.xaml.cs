@@ -34,7 +34,7 @@ namespace Workout.Gym
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-            string[] description = new string[6] { "ramiona", "brzuch", "plecy", "ręce", "klata", "nogi" };            
+            string[] description = new string[6] { "ramiona ", "brzuch", "Podciąganie oraz martwy ciąg", "ręce", "Podnoszenie sztangi na ławce płaskiej", "nogi" };            
 
             for (int item = 0; item < muscles.Count; item++)
             {
@@ -42,11 +42,6 @@ namespace Workout.Gym
                 Image img = new Image();
                 TextBlock desc = new TextBlock();
                 Border borderBG = new Border();
-
-             //   borderBG.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0x23, 0x28, 0x2C));
-             //   Grid.SetRow(borderBG, ((item + 1) % 2));
-
-
                 img.BeginInit();
                 img.Source = new BitmapImage(new Uri("/img/" + muscles[item] + ".png", UriKind.Relative));
                 img.EndInit();
@@ -60,10 +55,14 @@ namespace Workout.Gym
 
                 img.SetValue(Grid.RowProperty, muscles.Count - 1 - item);
                 img.SetValue(Grid.ColumnProperty, (item+1)%2);
+                img.MinHeight = 100;
+                img.MinWidth = 100;
+                img.MaxHeight = 250;
+                img.MaxWidth = 250;
 
                 desc.SetValue(Grid.RowProperty, muscles.Count - 1 - item);
                 desc.SetValue(Grid.ColumnProperty, (item+2) % 2);
-
+                
                 img.HorizontalAlignment = HorizontalAlignment.Center;
                 desc.VerticalAlignment = VerticalAlignment.Center;
 
@@ -79,49 +78,6 @@ namespace Workout.Gym
 
 
         /// <summary>
-        /// Starts training
-        /// </summary>
-        private void train()
-        {
-            dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromSeconds(1);
-            dt.Start();
-        }
-
-        /// <summary>
-        /// Stops timer and resets parameters;
-        /// </summary>
-        private void stopTraining()
-        {
-            dt.Stop();
-            resetTrainingParameters();
-        }
-
-
-        /// <summary>
-        /// Resets training parameters to default values
-        /// </summary>
-        private void resetTrainingParameters()
-        {
-
-            //labelCounter.Content = 0;
-            setSeriesLabel();
-        }
-
-
-
-
-
-
-        /// <summary>
-        /// Sets series label beneath exercise label
-        /// </summary>
-        private void setSeriesLabel()
-        {
-            //labelSeries.Content = "Seria: " + exSeries + "/" + SERIES_NUMBER;
-        }
-
-        /// <summary>
         /// Goes to previous page
         /// </summary>
         /// <param name="sender"></param>
@@ -134,21 +90,9 @@ namespace Workout.Gym
             mainWindow.setWindow(MainWindow.GYM_SETTINGS_PAGE);          
         }
 
-        /// <summary>
-        /// Stops training and resets its progress.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            backButton.IsEnabled = true;
-            stopTraining();
-          //  pauseButton.IsEnabled = false;
-          //  pauseImage.Source = imageSourceOfString("/icons/pause-dark.png");
-         //   playButton.IsEnabled = true;
-          //  playImage.Source = imageSourceOfString("/icons/play.png");
+            mainWindow.setWindow(MainWindow.START_PAGE);
         }
-
-
     }
 }

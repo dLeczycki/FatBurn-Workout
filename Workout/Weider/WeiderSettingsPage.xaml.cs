@@ -78,5 +78,25 @@ namespace Workout.Weider
 
             return true;
         }
+
+        public void setWeiderFirstTime(int number)
+        {
+            textExTime.Text = number.ToString();
+        }
+
+        public void setWeiderSecondTime(int number)
+        {
+            textBrTime.Text = number.ToString();
+        }
+
+        public void setWeiderThirdTime(int number)
+        {
+            textLngBrTime.Text = number.ToString();
+        }
+
+        public void setWeiderDayProgress(int number)
+        {
+            textProgress.Text = number.ToString();
+        }
     }
 }
