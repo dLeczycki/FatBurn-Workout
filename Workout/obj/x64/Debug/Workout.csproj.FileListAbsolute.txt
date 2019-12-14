@@ -62,14 +62,12 @@ E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymWorkoutP
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymMainPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymSettingsPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Gym\GymWorkoutPage.baml
-C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Gym\GymExplanationPage.g.cs
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Gym\GymMainPage.g.cs
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Gym\GymSettingsPage.g.cs
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Gym\GymWorkoutPage.g.cs
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Weider\WeiderMainPage.g.cs
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Weider\WeiderSettingsPage.g.cs
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Weider\WeiderWorkoutPage.g.cs
-C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Gym\GymExplanationPage.baml
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Gym\GymMainPage.baml
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Gym\GymSettingsPage.baml
 C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\Gym\GymWorkoutPage.baml
@@ -94,3 +92,4 @@ E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\Pushups
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsSettingsPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Pushups\PushupsWorkoutPage.baml
 E:\!WAT\Semestr_9\Dialogowe\2019\Projektv2\Workout\obj\x64\Debug\Workout.csprojAssemblyReference.cache
+C:\Users\danie\Desktop\Projekty\Workout\Workout\obj\x64\Debug\App.baml
