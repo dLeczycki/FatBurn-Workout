@@ -24,21 +24,12 @@
         <Border Grid.Column="0" Grid.Row="2">
             <ScrollViewer VerticalScrollBarVisibility="Hidden">
             <Grid x:Name="theGrid" Background="Transparent">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <!--
-                <Border Grid.Column="0" Grid.Row="0"></Border>
-                <Border Grid.Column="0" Grid.Row="1">
-                    <Grid x:Name="theGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
 
-                        <Image x:Name="myImage1" HorizontalAlignment="Left" Margin="40,0,20,0"/>
-                        <Label Content="aaa" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#FF2094ff" FontSize="24" VerticalAlignment="Center" />
-                    </Grid>
-                </Border>-->
-
-            </Grid>
+                </Grid>
             </ScrollViewer>
         </Border>
         <Border Grid.Column="0" Grid.Row="3">

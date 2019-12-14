@@ -37,8 +37,18 @@ namespace Workout.Gym
         {
             try
             {
-                if (!setGymParameters()) throw new Exception();
-                mainWindow.setWindow(MainWindow.GYM_WORKOUT_PAGE);
+
+                //     if (mainWindow.muscles.Any())
+                setGymParameters();
+                if (mainWindow.muscles.Any())
+                    mainWindow.setWindow(MainWindow.GYM_WORKOUT_PAGE); 
+                else
+                {
+                    MainWindow.Message_WrongGymParameters();
+                    setGymParameters();
+                }
+                    
+
             }
             catch (Exception ex)
             {
@@ -61,6 +71,7 @@ namespace Workout.Gym
             if (cbLeg.IsChecked == true) mainWindow.muscles.Add("leg");
             if (cbBack.IsChecked == true) mainWindow.muscles.Add("back");
 
+          //  if (mainWindow.muscles.Any())  MainWindow.Message_WrongGymParameters();
             return true;
         }
 

@@ -34,7 +34,19 @@ namespace Workout.Gym
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-            string[] description = new string[6] { "ramiona ", "brzuch", "Podciąganie oraz martwy ciąg", "ręce", "Podnoszenie sztangi na ławce płaskiej", "nogi" };            
+            string[] description = new string[6] {
+                  "Stojąc w lekkim rozkroku, unoś ramiona w bok do wysokości barków \nProponowana liczba powtórzeń: [16][14][12][10]" +
+                  "\nUnoszenie gryfu na prostych ramionach (powoli unoś sztangę szerokim łukiem i utrzymaj ją przez chwilę na linii barków) \nProponowana liczba powtórzeń: [12][10][8][6][4]"    //ćwiczenia na ramiona
+                , "\"Plank\": nogi wyprostowane, łokcie znajdują się pod linią barków a wzrok skierowany w dół, ciało znajduje się w linii prostej. \nProponowany czas wykonywania ćwiczenia w serii: 60 sekund"      //ćwiczenia na brzuch 
+                , "Wiosłowanie sztangą w opadzie tułowia. \nProponowana liczba powtórzeń: [20][18][16][14][12]" +
+                  "\nPodciąganie nachwytem. \nProponowana liczba powtórzeń: [10][9][8][7][6]"        //ćwiczenia na plecy
+                , "Biceps: chwyć hantle i przyciągaj je na zmianę w kierunku barków, nie dotykając ich, przytrzymując je około 15 cm od barków." +
+                  "\nTriceps: prostowanie ramion na wyciągu w pozycji stojącej. \nProponowana liczba powtórzeń: [20][18][16][14]"        //ćwiczenia na ręce
+                , "Wyciskanie sztangi na ławce płaskiej." +
+                  "\nRozpiętki na maszynie w pozycji siedzącej \nProponowana liczba powtórzeń: [12][10][8][6][4]"       //ćwiczenia na klatkę
+                , "Przysiady typu high bar (sztanga wysoko na ramionach) i low bar (sztanga na wysokości łopatek). \nWykonuj przysiady do momentu, w którym Twoja miednica zaczyna się podwijać." +
+                  "\nMartwy ciąg. \nProponowana liczba powtórzeń: [12][10][8][6][4]"        //ćwiczenia na nogi
+            };            
 
             for (int item = 0; item < muscles.Count; item++)
             {
@@ -65,10 +77,12 @@ namespace Workout.Gym
                 
                 img.HorizontalAlignment = HorizontalAlignment.Center;
                 desc.VerticalAlignment = VerticalAlignment.Center;
+                desc.TextWrapping = TextWrapping.Wrap;
+                desc.Margin = new Thickness(20);
 
-                TextBlock.SetFontSize(desc, 24);
+                TextBlock.SetFontSize(desc, 15);
                 TextBlock.SetForeground(desc, Brushes.White);
-                TextBlock.SetTextAlignment(desc, TextAlignment.Center);
+                TextBlock.SetTextAlignment(desc, TextAlignment.Justify);
 
                 theGrid.Children.Add(img);
                 theGrid.Children.Add(desc);

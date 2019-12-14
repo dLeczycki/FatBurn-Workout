@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Workout"
         mc:Ignorable="d"
+        Icon="/img/FBicon.png"
         Title="FatBurn" Height="675" Width="1200" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid>
         <Grid.ColumnDefinitions>
